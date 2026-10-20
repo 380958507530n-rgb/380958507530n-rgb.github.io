@@ -151,6 +151,7 @@ h1 em, h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
 .team { padding-block: 120px; background: var(--cream); }
 .docs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .doc { margin: 0; display: grid; gap: 14px; justify-items: center; text-align: center; min-width: 0; }
+.doc .ph img { object-position: 50% 22%; }
 .doc .ph { width: 100%; aspect-ratio: 1; border-radius: 50%; border: 6px solid var(--paper); box-shadow: 0 20px 40px -26px rgba(34,51,43,.5); }
 .doc figcaption b { display: block; font: 600 22px/1.2 var(--display); }
 .doc figcaption span { color: var(--muted); font-size: 14.5px; }
@@ -381,10 +382,10 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
         <h2>Ludzie, którzy <em>kochają zwierzęta</em></h2>
       </div>
       <div class="docs">
-        <figure class="doc"><div class="ph" data-label="Lekarz"></div><figcaption><b>Anna Wiśniewska</b><span>internista, kardiologia</span></figcaption></figure>
-        <figure class="doc"><div class="ph" data-label="Lekarz"></div><figcaption><b>Tomasz Krawczyk</b><span>chirurgia i ortopedia</span></figcaption></figure>
-        <figure class="doc"><div class="ph" data-label="Lekarz"></div><figcaption><b>Ola Nowicka</b><span>stomatologia</span></figcaption></figure>
-        <figure class="doc"><div class="ph" data-label="Lekarz"></div><figcaption><b>Michał Zieliński</b><span>koty i małe zwierzęta</span></figcaption></figure>
+        <figure class="doc"><div class="ph" data-label="Lekarz"><img src="assets/lek-anna.webp" alt="Anna Wiśniewska, lekarz weterynarii" loading="lazy"></div><figcaption><b>Anna Wiśniewska</b><span>internista, kardiologia</span></figcaption></figure>
+        <figure class="doc"><div class="ph" data-label="Lekarz"><img src="assets/lek-tomasz.webp" alt="Tomasz Krawczyk, lekarz weterynarii" loading="lazy"></div><figcaption><b>Tomasz Krawczyk</b><span>chirurgia i ortopedia</span></figcaption></figure>
+        <figure class="doc"><div class="ph" data-label="Lekarz"><img src="assets/lek-ola.webp" alt="Ola Nowicka, lekarz weterynarii" loading="lazy"></div><figcaption><b>Ola Nowicka</b><span>stomatologia</span></figcaption></figure>
+        <figure class="doc"><div class="ph" data-label="Lekarz"><img src="assets/lek-michal.webp" alt="Michał Zieliński, lekarz weterynarii" loading="lazy"></div><figcaption><b>Michał Zieliński</b><span>koty i małe zwierzęta</span></figcaption></figure>
       </div>
       <div class="reviews">
         <figure class="review"><div class="stars" aria-label="5 na 5">★★★★★</div><blockquote>Bruno boi się weterynarzy, a tu wyszedł z merdającym ogonem. Pani doktor badała go na podłodze.</blockquote><figcaption><b>Kasia i Bruno</b> · labrador, 4 lata</figcaption></figure>
