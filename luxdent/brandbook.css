@@ -1,0 +1,146 @@
+/* ==========================================================================
+   LUXDENT — brandbook
+   The token layer. Nothing in here selects a component; site.css does that.
+   ========================================================================== */
+
+:root {
+  /* --- Palette -----------------------------------------------------------
+     Petrol carries the clinic's calm/clinical half, brass the "lux" half.
+     Neutrals are warmed so white never reads as hospital-fluorescent. */
+  --petrol-950: #06191b;
+  --petrol-900: #0b2a2d;
+  --petrol-800: #11393c;
+  --petrol-700: #164a4d;
+  --petrol-600: #1d5c5e;
+  --petrol-500: #2a7375;
+  --petrol-300: #7aa8a7;
+  --petrol-100: #d8e6e4;
+
+  --brass-700: #8c6d31;
+  --brass-600: #a8853f;
+  --brass-500: #c6a664;
+  --brass-400: #d9c08c;
+  --brass-200: #efe3c7;
+  --brass-100: #f7efdf;
+
+  --sand-0:   #ffffff;
+  --sand-50:  #fdfbf7;
+  --sand-100: #f7f3eb;
+  --sand-200: #ede7db;
+  --sand-300: #ded5c5;
+  --sand-400: #b9ae9b;
+  --sand-500: #8c8271;
+  --sand-600: #635b4e;
+
+  --signal-success: #2f6f4f;
+  --signal-error:   #9b3226;
+
+  /* --- Semantic colour --------------------------------------------------- */
+  --color-bg:             var(--sand-50);
+  --color-bg-alt:         var(--sand-100);
+  --color-surface:        var(--sand-0);
+  --color-surface-sunken: var(--sand-100);
+  --color-ink:            var(--petrol-950);
+  --color-ink-muted:      var(--sand-600);
+  --color-ink-subtle:     var(--sand-500);
+  --color-line:           var(--sand-200);
+  --color-line-strong:    var(--sand-300);
+
+  --color-brand:          var(--petrol-800);
+  --color-brand-strong:   var(--petrol-900);
+  --color-brand-soft:     var(--petrol-100);
+  --color-on-brand:       var(--sand-50);
+
+  --color-accent:         var(--brass-500);
+  --color-accent-strong:  var(--brass-600);
+  --color-on-accent:      var(--petrol-950);
+
+  --color-focus:          var(--brass-600);
+
+  /* --- Type -------------------------------------------------------------- */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+                  ui-serif, serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   clamp(1.25rem, 0.4vw + 1.15rem, 1.375rem);
+  --text-2xl:  clamp(1.5rem, 0.9vw + 1.3rem, 1.875rem);
+  --text-3xl:  clamp(1.875rem, 1.6vw + 1.5rem, 2.5rem);
+  --text-4xl:  clamp(2.25rem, 2.6vw + 1.7rem, 3.25rem);
+  --text-5xl:  clamp(2.75rem, 4.2vw + 1.8rem, 4.5rem);
+
+  --leading-tight:  1.08;
+  --leading-snug:   1.28;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-caps: 0.16em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* --- Space ------------------------------------------------------------- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  2.5rem;
+  --space-8:  3rem;
+  --space-9:  4rem;
+  --space-10: 5rem;
+  --space-11: 6.5rem;
+  --space-12: 8rem;
+
+  --section-y: clamp(var(--space-9), 7vw, var(--space-12));
+
+  /* --- Shape ------------------------------------------------------------- */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   18px;
+  --radius-xl:   28px;
+  --radius-pill: 999px;
+
+  --border-hairline: 1px solid var(--color-line);
+
+  /* --- Elevation ---------------------------------------------------------
+     Warm-tinted rather than neutral grey, so cards sit on the sand ground. */
+  --shadow-sm: 0 1px 2px rgba(11, 42, 45, 0.06),
+               0 2px 6px rgba(11, 42, 45, 0.04);
+  --shadow-md: 0 2px 4px rgba(11, 42, 45, 0.05),
+               0 10px 24px rgba(11, 42, 45, 0.07);
+  --shadow-lg: 0 4px 8px rgba(11, 42, 45, 0.06),
+               0 24px 56px rgba(11, 42, 45, 0.11);
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-base: 260ms;
+  --dur-slow: 620ms;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --container: 1180px;
+  --container-narrow: 760px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --header-h: 76px;
+
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-overlay: 200;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --header-h: 64px;
+  }
+}

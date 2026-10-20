@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUXDENT — премиальная стоматология</title>
+<meta name="description" content="LUXDENT — стоматологическая клиника полного цикла: имплантация, ортодонтия, эстетическая реставрация. Приём ведут четыре профильных врача.">
+<meta name="theme-color" content="#11393c">
+<link rel="stylesheet" href="brandbook.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<header class="site-header" data-header>
+  <div class="container header__inner">
+    <a class="brand" href="#top" aria-label="LUXDENT — на главную">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 4.5c-2-1.4-5-1.6-6.4.2-1.5 1.9-1 5 .2 8.3.9 2.5 1.3 5.4 2.6 6.6 1.1 1 2-.6 2.3-2.5.2-1.6.4-2.9 1.3-2.9s1.1 1.3 1.3 2.9c.3 1.9 1.2 3.5 2.3 2.5 1.3-1.2 1.7-4.1 2.6-6.6 1.2-3.3 1.7-6.4.2-8.3-1.4-1.8-4.4-1.6-6.4-.2Z"/>
+        </svg>
+      </span>
+      <span class="brand__word">Lux<span>dent</span></span>
+    </a>
+
+    <nav class="nav" id="nav" data-nav aria-label="Основная навигация">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#services">Услуги</a></li>
+        <li><a class="nav__link" href="#about">О клинике</a></li>
+        <li><a class="nav__link" href="#doctors">Врачи</a></li>
+        <li><a class="nav__link" href="#pricing">Цены</a></li>
+        <li><a class="nav__link" href="#reviews">Отзывы</a></li>
+        <li><a class="nav__link" href="#booking">Контакты</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a class="btn btn--primary btn--block" href="#booking">Записаться на приём</a>
+        <a class="btn btn--ghost btn--block" href="tel:+74951234567">+7 (495) 123-45-67</a>
+      </div>
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__phone" href="tel:+74951234567">+7 (495) 123-45-67</a>
+      <a class="btn btn--primary" href="#booking">Записаться</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav" aria-label="Меню">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero ------------------------------------------------------------- -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__copy" data-reveal>
+          <p class="eyebrow">Стоматология полного цикла</p>
+          <h1 class="hero__title">Спокойная забота о зубах — <em>без спешки и лишнего</em></h1>
+          <p class="hero__lede">
+            Диагностика, план лечения и его стоимость — на первом приёме. Мы не назначаем
+            процедуры, которые можно не делать, и объясняем каждое решение до того,
+            как приступить к работе.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#booking">Записаться на консультацию</a>
+            <a class="btn btn--ghost btn--lg" href="#services">Смотреть услуги</a>
+          </div>
+          <p class="hero__note">Первичная консультация с планом лечения — 0 ₽</p>
+        </div>
+
+        <div class="hero__media" data-reveal>
+          <figure class="hero__frame">
+            <img src="assets/interior-reception.webp"
+                 alt="Зона ресепшн клиники LUXDENT: стойка администратора и мягкое дневное освещение"
+                 width="1800" height="1200">
+          </figure>
+          <div class="hero__badge">
+            <strong>14 лет</strong>
+            <span>принимаем пациентов на Пресне</span>
+          </div>
+        </div>
+      </div>
+
+      <dl class="stats" data-reveal data-reveal-group>
+        <div class="stat" style="--i:0"><dt>12 400</dt><dd>пациентов прошли лечение</dd></div>
+        <div class="stat" style="--i:1"><dt>4</dt><dd>профильных специалиста</dd></div>
+        <div class="stat" style="--i:2"><dt>3 года</dt><dd>гарантия на импланты</dd></div>
+        <div class="stat" style="--i:3"><dt>4,9</dt><dd>средняя оценка приёма</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Services --------------------------------------------------------- -->
+  <section class="section section--sunken" id="services">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Услуги</p>
+        <h2 class="section__title">Что мы делаем</h2>
+        <p class="section__lede">
+          Шесть направлений, закрывающих задачу целиком — от профилактики
+          до восстановления зубного ряда. Всё в одной клинике, без направлений «на сторону».
+        </p>
+      </header>
+
+      <div class="card-grid" data-reveal data-reveal-group>
+
+        <article class="service-card" style="--i:0">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5c-1.8-1.2-4.4-1.4-5.7.2-1.3 1.7-.9 4.4.2 7.3.8 2.2 1.1 4.8 2.3 5.9"/>
+              <path d="M12 3.5c1.8-1.2 4.4-1.4 5.7.2 1.3 1.7.9 4.4-.2 7.3"/>
+              <path d="M12 14v7"/><path d="M9.5 17.5h5"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Имплантация</h3>
+          <p>Восстановление одного зуба или всего ряда. Планируем по КТ, ставим импланты Straumann и Osstem, коронку фиксируем после приживления.</p>
+          <p class="service-card__price">от 45 000 ₽</p>
+        </article>
+
+        <article class="service-card" style="--i:1">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9c2.5-2.5 13.5-2.5 16 0"/>
+              <path d="M5 9v4.5c0 3 3.1 5.5 7 5.5s7-2.5 7-5.5V9"/>
+              <path d="M9 9v8"/><path d="M15 9v8"/><path d="M4 13h16"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Ортодонтия и элайнеры</h3>
+          <p>Брекеты и прозрачные капы для взрослых и подростков. Показываем 3D-симуляцию результата до старта лечения.</p>
+          <p class="service-card__price">от 120 000 ₽</p>
+        </article>
+
+        <article class="service-card" style="--i:2">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3 1.9 4.4L18.5 9l-4.6 1.6L12 15l-1.9-4.4L5.5 9l4.6-1.6L12 3Z"/>
+              <path d="M18 16.5 18.8 18l1.7.6-1.7.6-.8 1.6-.8-1.6-1.7-.6 1.7-.6.8-1.5Z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Эстетическая реставрация</h3>
+          <p>Виниры и художественная реставрация. Подбираем форму и оттенок по лицу, а не по каталогу — примерка до фиксации.</p>
+          <p class="service-card__price">от 12 000 ₽</p>
+        </article>
+
+        <article class="service-card" style="--i:3">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s7-4 7-9.5V5.5L12 3 5 5.5V11.5C5 17 12 21 12 21Z"/>
+              <path d="m9 11.5 2 2 4-4"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Терапия и лечение кариеса</h3>
+          <p>Лечение под микроскопом с сохранением здоровых тканей. Анестезия подбирается индивидуально, включая пациентов со страхом лечения.</p>
+          <p class="service-card__price">от 6 500 ₽</p>
+        </article>
+
+        <article class="service-card" style="--i:4">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 10c0-3.3 2.7-6 6-6s6 2.7 6 6c0 2.6-1.5 4-2 6.5-.3 1.7-1.5 3.5-4 3.5s-3.7-1.8-4-3.5C7.5 14 6 12.6 6 10Z"/>
+              <path d="M9.5 9.5h.01"/><path d="M14.5 9.5h.01"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Профессиональная гигиена</h3>
+          <p>Ультразвук, Air Flow и полировка за один визит. Раз в полгода — и большинство проблем просто не начинается.</p>
+          <p class="service-card__price">от 8 900 ₽</p>
+        </article>
+
+        <article class="service-card" style="--i:5">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Детская стоматология</h3>
+          <p>Первый визит — знакомство с кабинетом без лечения. Дальше только то, что ребёнок готов пройти спокойно.</p>
+          <p class="service-card__price">от 3 500 ₽</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About ------------------------------------------------------------ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div data-reveal>
+          <header class="section__head">
+            <p class="eyebrow">О клинике</p>
+            <h2 class="section__title">Клиника, куда не страшно возвращаться</h2>
+            <p class="section__lede">
+              LUXDENT работает с 2011 года. За это время мы отказались от продающих
+              скриптов и планов лечения «на всякий случай» — и это оказалось лучшей
+              рекламой, чем любая акция.
+            </p>
+          </header>
+
+          <div class="about__list">
+            <div class="feature">
+              <span class="feature__mark" aria-hidden="true">01</span>
+              <div>
+                <h3>Смета фиксируется до лечения</h3>
+                <p>План с точной стоимостью подписывается на первом приёме. Если в процессе что-то меняется, работы не начинаются без вашего согласия.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="feature__mark" aria-hidden="true">02</span>
+              <div>
+                <h3>Свой зуботехнический цех</h3>
+                <p>Коронки и виниры делают в клинике. Техник видит пациента лично, поэтому примерка занимает один визит, а не три.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="feature__mark" aria-hidden="true">03</span>
+              <div>
+                <h3>Стерилизация под контролем</h3>
+                <p>Инструменты проходят полный цикл в автоклавах класса B. Журналы контроля открыты — попросите на ресепшн в любой момент.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="feature__mark" aria-hidden="true">04</span>
+              <div>
+                <h3>Врач ведёт вас до конца</h3>
+                <p>Пациента не передают между специалистами. Тот, кто составил план, доводит его до результата и отвечает за гарантию.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="about__media" data-reveal>
+          <img src="assets/interior-reception.webp"
+               alt="Интерьер зоны ожидания LUXDENT с мягким светом и живыми растениями"
+               width="1800" height="1200" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors ---------------------------------------------------------- -->
+  <section class="section section--sunken" id="doctors">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Врачи</p>
+        <h2 class="section__title">Кто вас примет</h2>
+        <p class="section__lede">
+          Четыре специалиста, каждый со своим направлением. Сложные случаи
+          разбираем консилиумом — по понедельникам, до начала приёма.
+        </p>
+      </header>
+
+      <div class="doctor-grid" data-reveal data-reveal-group>
+
+        <article class="doctor-card" style="--i:0">
+          <div class="doctor-card__photo">
+            <img src="assets/doc-groza.webp" alt="Портрет: Гроза Ирина Сергеевна" width="900" height="1125" loading="lazy">
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Гроза Ирина Сергеевна</h3>
+            <p class="doctor-card__role">Главный врач, стоматолог-ортопед</p>
+            <p class="doctor-card__meta">18 лет практики · протезирование, полная реабилитация</p>
+          </div>
+        </article>
+
+        <article class="doctor-card" style="--i:1">
+          <div class="doctor-card__photo">
+            <img src="assets/doc-lanskoy.webp" alt="Портрет: Ланской Дмитрий Павлович" width="900" height="1125" loading="lazy">
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Ланской Дмитрий Павлович</h3>
+            <p class="doctor-card__role">Имплантолог, хирург</p>
+            <p class="doctor-card__meta">15 лет практики · более 2 000 установленных имплантов</p>
+          </div>
+        </article>
+
+        <article class="doctor-card" style="--i:2">
+          <div class="doctor-card__photo">
+            <img src="assets/doc-osipov.webp" alt="Портрет: Осипов Артём Николаевич" width="900" height="1125" loading="lazy">
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Осипов Артём Николаевич</h3>
+            <p class="doctor-card__role">Стоматолог-терапевт, эндодонтист</p>
+            <p class="doctor-card__meta">11 лет практики · лечение каналов под микроскопом</p>
+          </div>
+        </article>
+
+        <article class="doctor-card" style="--i:3">
+          <div class="doctor-card__photo">
+            <img src="assets/doc-vereshchak.webp" alt="Портрет: Верещак Ольга Владимировна" width="900" height="1125" loading="lazy">
+          </div>
+          <div class="doctor-card__body">
+            <h3 class="doctor-card__name">Верещак Ольга Владимировна</h3>
+            <p class="doctor-card__role">Ортодонт</p>
+            <p class="doctor-card__meta">9 лет практики · элайнеры, брекет-системы, детский приём</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing ---------------------------------------------------------- -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Цены</p>
+        <h2 class="section__title">Сколько это стоит</h2>
+        <p class="section__lede">
+          Основные позиции прайса. Итоговая сумма фиксируется в плане лечения
+          после осмотра и снимка — выше указанного она не становится.
+        </p>
+      </header>
+
+      <div class="table-scroll" data-reveal>
+        <table class="price-table">
+          <caption>Цены действительны на 2026 год. Полный прайс — на ресепшн и по запросу.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Процедура</th>
+              <th scope="col">Что входит</th>
+              <th scope="col">Стоимость</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Первичная консультация</th>
+              <td>Осмотр, план лечения, ответы на вопросы</td>
+              <td>0 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Компьютерная томография</th>
+              <td>3D-снимок челюсти, расшифровка врачом</td>
+              <td>3 200 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Профессиональная гигиена</th>
+              <td>Ультразвук, Air Flow, полировка, фторирование</td>
+              <td>8 900 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Лечение кариеса</th>
+              <td>Анестезия, реставрация, полировка</td>
+              <td>6 500 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Лечение канала под микроскопом</th>
+              <td>Один канал, пломбировка, контрольный снимок</td>
+              <td>9 800 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Имплант с коронкой</th>
+              <td>Имплант, установка, абатмент, коронка</td>
+              <td>от 45 000 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Элайнеры, полный курс</th>
+              <td>Сканирование, 3D-план, все капы, ретейнеры</td>
+              <td>от 120 000 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Керамический винир</th>
+              <td>Препарирование, примерка, фиксация</td>
+              <td>от 32 000 ₽</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews ---------------------------------------------------------- -->
+  <section class="section section--sunken" id="reviews">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Отзывы</p>
+        <h2 class="section__title">Что говорят пациенты</h2>
+      </header>
+
+      <div class="card-grid" data-reveal data-reveal-group>
+
+        <figure class="review-card" style="--i:0">
+          <p class="stars" aria-label="Оценка 5 из 5">★★★★★</p>
+          <blockquote>«Пришла с мыслью, что придётся удалять. Показали снимок, объяснили, почему зуб можно спасти, и спасли. Никто ничего не навязывал.»</blockquote>
+          <figcaption>Марина К. · лечение каналов · март 2026</figcaption>
+        </figure>
+
+        <figure class="review-card" style="--i:1">
+          <p class="stars" aria-label="Оценка 5 из 5">★★★★★</p>
+          <blockquote>«Два импланта, всё по плану и в срок. Сумма, которую назвали на первом приёме, в конце не изменилась ни на рубль.»</blockquote>
+          <figcaption>Сергей Д. · имплантация · январь 2026</figcaption>
+        </figure>
+
+        <figure class="review-card" style="--i:2">
+          <p class="stars" aria-label="Оценка 5 из 5">★★★★★</p>
+          <blockquote>«Веду сюда дочь. Первый визит был просто знакомством с кабинетом — теперь она идёт к врачу сама и без слёз.»</blockquote>
+          <figcaption>Анна Т. · детский приём · февраль 2026</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -------------------------------------------------------------- -->
+  <section class="section" id="faq">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Вопросы</p>
+        <h2 class="section__title">Коротко о главном</h2>
+      </header>
+
+      <div class="faq" data-faq data-reveal>
+        <details>
+          <summary>Сколько длится первый приём?</summary>
+          <p>От 40 минут до часа. За это время врач осматривает полость рта, при необходимости делает снимок и составляет план лечения со сроками и стоимостью. Консультация бесплатна даже если вы решите лечиться в другом месте.</p>
+        </details>
+        <details>
+          <summary>Больно ли лечить зубы у вас?</summary>
+          <p>Все вмешательства проводятся под анестезией, которую подбирают по чувствительности и состоянию здоровья. Если вы боитесь лечения, скажите об этом при записи — приём построят с паузами и предварительным объяснением каждого шага.</p>
+        </details>
+        <details>
+          <summary>Что с гарантией?</summary>
+          <p>На импланты — 3 года, на коронки и виниры — 2 года, на терапевтические работы — 1 год. Гарантия сохраняется при соблюдении рекомендаций и профилактических визитах раз в полгода.</p>
+        </details>
+        <details>
+          <summary>Можно ли оплатить лечение частями?</summary>
+          <p>Да. Крупные планы лечения делятся на этапы, каждый оплачивается отдельно по факту выполнения. Также доступна рассрочка на срок до 12 месяцев без переплаты.</p>
+        </details>
+        <details>
+          <summary>Принимаете ли вы детей?</summary>
+          <p>Принимаем с 3 лет. Первый визит — адаптационный: знакомство с кабинетом и инструментами без лечения. Дальнейшие приёмы строятся по темпу ребёнка.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking ---------------------------------------------------------- -->
+  <section class="section booking" id="booking">
+    <div class="container">
+      <div class="booking__grid">
+
+        <div data-reveal>
+          <header class="section__head">
+            <p class="eyebrow">Запись</p>
+            <h2 class="section__title">Приходите на консультацию</h2>
+            <p class="section__lede">
+              Оставьте номер — администратор перезвонит в течение 15 минут
+              и подберёт удобное время.
+            </p>
+          </header>
+
+          <dl class="booking__contacts">
+            <div class="booking__contact">
+              <dt>Телефон</dt>
+              <dd><a href="tel:+74951234567">+7 (495) 123-45-67</a></dd>
+            </div>
+            <div class="booking__contact">
+              <dt>Адрес</dt>
+              <dd>ул. Пресненская, 12<small>10 минут от метро «Улица 1905 года»</small></dd>
+            </div>
+            <div class="booking__contact">
+              <dt>Часы работы</dt>
+              <dd>Пн–Сб, 9:00–21:00<small>Воскресенье — дежурный приём по записи</small></dd>
+            </div>
+            <div class="booking__contact">
+              <dt>Почта</dt>
+              <dd><a href="mailto:hello@luxdent.example">hello@luxdent.example</a></dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="booking__form" data-booking novalidate data-reveal>
+          <div class="field-row">
+            <div class="field">
+              <label for="booking-name">Как к вам обращаться</label>
+              <input id="booking-name" name="name" type="text" autocomplete="name" placeholder="Имя">
+              <p class="field__error" data-error role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="booking-phone">Телефон</label>
+              <input id="booking-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+              <p class="field__error" data-error role="alert"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="booking-service">Направление</label>
+            <select id="booking-service" name="service">
+              <option value="">Не знаю, нужна консультация</option>
+              <option>Имплантация</option>
+              <option>Ортодонтия и элайнеры</option>
+              <option>Эстетическая реставрация</option>
+              <option>Терапия и лечение кариеса</option>
+              <option>Профессиональная гигиена</option>
+              <option>Детская стоматология</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="booking-note">Что вас беспокоит <span class="field__optional">(необязательно)</span></label>
+            <textarea id="booking-note" name="note" rows="3" placeholder="Опишите в двух словах — врач подготовится заранее"></textarea>
+          </div>
+
+          <div class="field field--check">
+            <input id="booking-consent" name="consent" type="checkbox">
+            <label for="booking-consent">Согласен на обработку персональных данных и получение звонка от клиники</label>
+            <p class="field__error" data-error role="alert"></p>
+          </div>
+
+          <button class="btn btn--accent btn--lg btn--block" type="submit">Записаться на приём</button>
+          <p class="booking__status" data-booking-status role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col footer__about">
+        <a class="brand" href="#top" aria-label="LUXDENT — на главную">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 4.5c-2-1.4-5-1.6-6.4.2-1.5 1.9-1 5 .2 8.3.9 2.5 1.3 5.4 2.6 6.6 1.1 1 2-.6 2.3-2.5.2-1.6.4-2.9 1.3-2.9s1.1 1.3 1.3 2.9c.3 1.9 1.2 3.5 2.3 2.5 1.3-1.2 1.7-4.1 2.6-6.6 1.2-3.3 1.7-6.4.2-8.3-1.4-1.8-4.4-1.6-6.4-.2Z"/>
+            </svg>
+          </span>
+          <span class="brand__word">Lux<span>dent</span></span>
+        </a>
+        <p>Стоматологическая клиника полного цикла в Москве. Работаем с 2011 года.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Разделы</h4>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#about">О клинике</a></li>
+          <li><a href="#doctors">Врачи</a></li>
+          <li><a href="#pricing">Цены</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+          <li><a href="mailto:hello@luxdent.example">hello@luxdent.example</a></li>
+          <li>ул. Пресненская, 12</li>
+          <li>Пн–Сб, 9:00–21:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__legal">
+      <p>© <span data-year>2026</span> LUXDENT. Лицензия ЛО-77-01-000000.</p>
+      <p>Информация на сайте не является публичной офертой.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="site-shell.js" defer></script>
+</body>
+</html>
