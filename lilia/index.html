@@ -190,7 +190,9 @@ h1 em, h2 em { font-style: italic; color: var(--gold); }
 .extras { padding-block: 120px; background: var(--ivory); }
 .acc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .acc figure { margin: 0; display: grid; gap: 12px; min-width: 0; }
-.acc .ph { aspect-ratio: 1; border-radius: 50%; }
+.acc .ph { aspect-ratio: 1; border-radius: 50%; background: #000; }
+.acc .ph img { transition: transform 1s ease; }
+.acc figure:hover .ph img { transform: scale(1.06); }
 .acc figcaption { text-align: center; font: italic 400 22px/1.2 var(--display); }
 .acc figcaption small { display: block; font: 300 13.5px/1.4 var(--body); color: var(--muted); font-style: normal; margin-top: 4px; }
 .reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 110px; }
@@ -415,10 +417,10 @@ footer { padding-block: 30px; display: flex; flex-wrap: wrap; justify-content: s
         <h2>Detale, które <em>dopełniają</em></h2>
       </div>
       <div class="acc">
-        <figure><div class="ph" data-label="Welony"></div><figcaption>Welony<small>od tiulu po koronkę, od 690 zł</small></figcaption></figure>
-        <figure><div class="ph" data-label="Buty"></div><figcaption>Buty<small>satyna i skóra, od 590 zł</small></figcaption></figure>
-        <figure><div class="ph" data-label="Biżuteria"></div><figcaption>Biżuteria<small>perły i kryształy, od 290 zł</small></figcaption></figure>
-        <figure><div class="ph" data-label="Bolerka"></div><figcaption>Bolerka<small>na chłodniejszy wieczór, od 450 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Welony"><img src="assets/welon.webp" alt="Dwuwarstwowy welon z koronkowym brzegiem" loading="lazy"></div><figcaption>Welony<small>od tiulu po koronkę, od 690 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Buty"><img src="assets/buty.webp" alt="Satynowe szpilki z perłowymi zdobieniami" loading="lazy"></div><figcaption>Buty<small>satyna i skóra, od 590 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Biżuteria"><img src="assets/bizuteria.webp" alt="Komplet: naszyjnik, kolczyki i grzebień z perłami" loading="lazy"></div><figcaption>Biżuteria<small>perły i kryształy, od 290 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Bolerka"><img src="assets/bolerko.webp" alt="Koronkowe bolerko na manekinie" loading="lazy"></div><figcaption>Bolerka<small>na chłodniejszy wieczór, od 450 zł</small></figcaption></figure>
       </div>
 
       <div class="reviews">
