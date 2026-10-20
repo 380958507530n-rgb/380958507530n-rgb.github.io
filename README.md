@@ -6,3 +6,4 @@ Portfolio of concept websites, published at https://380958507530n-rgb.github.io/
 - `luxdent/` — LUXDENT dental clinic
 - `gusto/` — GUSTO Kitchen restaurant menu
 - `lilia/` — Biała Lilia bridal salon
+- `szalwia/` — Szałwia veterinary clinic
