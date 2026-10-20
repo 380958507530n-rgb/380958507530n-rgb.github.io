@@ -124,7 +124,8 @@ h1 em, h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
 
 /* the visit */
 .visit { padding-block: 0 120px; background: var(--paper); }
-.visit__img { height: 92svh; min-height: 480px; }
+.visit__img { height: min(92svh, 56.25vw); min-height: 420px; }
+.visit__img img { object-position: 50% 60%; }
 .visit__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 70px; align-items: start; padding-block: 110px 0; }
 .visit__grid .head { margin-bottom: 0; position: sticky; top: 120px; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
@@ -220,7 +221,7 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
   .nav.is-open ul a { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
   .hero { grid-template-columns: minmax(0, 1fr); padding-block: 24px 64px; }
   .hero__media { order: -1; max-width: 520px; width: 100%; justify-self: center; }
-  .visit__img { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+  .visit__img { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
   .finale { min-height: 0; }
   .finale__media { position: relative; inset: auto; aspect-ratio: 16 / 9; z-index: 0; }
   .finale::before { content: none; }
@@ -329,7 +330,7 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
   </section>
 
   <section class="visit" id="wizyta">
-    <div class="visit__img ph" data-label="Gabinet"></div>
+    <div class="visit__img ph" data-label="Gabinet"><img src="assets/gabinet.webp" alt="Przytulny gabinet z szałwiowymi ścianami, roślinami i psem na legowisku" loading="lazy"></div>
     <div class="wrap visit__grid">
       <div class="head">
         <div class="label">Jak wygląda wizyta</div>
