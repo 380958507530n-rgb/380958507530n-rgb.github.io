@@ -396,7 +396,7 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
   </section>
 
   <section class="finale" id="kontakt">
-    <div class="finale__media ph" data-label=""></div>
+    <div class="finale__media ph" data-label=""><video id="finalVideo" src="assets/final-dog.mp4" poster="assets/final-dog-end.jpg" muted playsinline preload="metadata" aria-label="Pies patrzy w kamerę, odwraca się i biegnie przez łąkę"></video></div>
     <div class="wrap finale__grid">
       <div class="finale__left">
         <div class="label">Do zobaczenia</div>
@@ -478,6 +478,16 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
   });
   document.getElementById('bookClose').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  // Finale plays once each time it scrolls into view and holds on the last frame (the meadow).
+  var fin = document.getElementById('finalVideo');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { var pr = fin.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else if (e.boundingClientRect.top > 0) { fin.pause(); fin.currentTime = 0; }
+      });
+    }, { threshold: 0.4 }).observe(fin.parentNode);
+  }
   document.getElementById('bookForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var name = document.getElementById('f-name'), phone = document.getElementById('f-phone');
