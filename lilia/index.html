@@ -144,12 +144,12 @@ h1 em, h2 em { font-style: italic; color: var(--gold); }
 .head--center .label::after { content: ""; width: 40px; height: 1px; background: currentColor; }
 .collections { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .coll { display: grid; gap: 18px; align-content: start; min-width: 0; }
-.coll .ph { aspect-ratio: 4 / 5; border-radius: 200px 200px 6px 6px; transition: transform .6s ease, box-shadow .6s ease; }
+.coll .ph { aspect-ratio: 2 / 3; border-radius: 200px 200px 6px 6px; background: #000; transition: transform .6s ease, box-shadow .6s ease; }
 .coll:hover .ph { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
 .silk .ph { background-image: radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,.22), transparent 55%), linear-gradient(160deg, #3a3a39, #1c1c1b 60%, #2b2b2a); }
 .silk .ph::after { color: rgba(255,255,255,.45); }
-.coll .ph img { transition: transform 1.2s ease; object-position: 50% 22%; }
-.coll:hover .ph img { transform: scale(1.05); }
+.coll .ph img { transition: transform 1.2s ease; object-fit: contain; object-position: 50% 100%; }
+.coll:hover .ph img { transform: scale(1.03); }
 .coll h3 { font-size: 30px; line-height: 1; }
 .coll h3 small { display: block; margin-top: 8px; font: 400 11px/1 var(--body); letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
 .coll p { margin: 0; font-size: 15px; color: var(--muted); }
@@ -160,7 +160,7 @@ h1 em, h2 em { font-style: italic; color: var(--gold); }
 /* fitting ritual */
 .ritual { padding-block: 130px; background: var(--paper); }
 .ritual__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 70px; align-items: center; }
-.ritual__img { aspect-ratio: 4 / 5; border-radius: 6px 6px 220px 6px; }
+.ritual__img { aspect-ratio: 1212 / 1297; border-radius: 6px; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
 .steps li { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--line); }
 .steps li:last-child { border-bottom: 1px solid var(--line); }
@@ -364,7 +364,7 @@ footer { padding-block: 30px; display: flex; flex-wrap: wrap; justify-content: s
   <section class="ritual" id="przymiarka">
     <div class="wrap">
       <div class="ritual__grid">
-        <div class="ritual__img ph" data-label="Przymierzalnia"></div>
+        <div class="ritual__img ph" data-label="Przymierzalnia"><img src="assets/przymierzalnia.webp" alt="Przymierzalnia z kwiatową bramą, lustrem i pufami" loading="lazy"></div>
         <div>
           <div class="head">
             <div class="label">Jak wygląda przymiarka</div>
