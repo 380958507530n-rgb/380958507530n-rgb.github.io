@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kontakt i zapisy — LUXDENT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brandbook.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="site">
+
+<section class="p-hero" data-screen-label="Nagłówek strony">
+<div class="s-wrap">
+<div class="crumbs"><a href="home.html">Klinika</a><span>/</span><span>Kontakt i zapisy</span></div>
+<div class="in">
+<div>
+<div class="s-eyebrow" style="color:var(--aqua)">ul. Wilcza 21, Warszawa · 6 minut od metra</div>
+<h1>Zapis na diagnostykę<br>cyfrową</h1>
+<p class="sub">Jedna wizyta, 60 minut, 390 zł. Tomografia, skan, fotoprotokół i plan leczenia ze stałą ceną na piśmie.</p>
+</div>
+<div class="kv">
+<div><span>Godziny pracy</span><b>Pn—Pt 09:00—21:00</b></div>
+<div><span>Sobota</span><b>10:00—18:00</b></div>
+<div><span>Telefon</span><b>+48 22 120 40 40</b></div>
+<div><span>Parking</span><b>4 miejsca na podwórzu</b></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="s-sec" id="book" data-screen-label="Formularz zapisu">
+<div class="s-wrap">
+<div class="book reveal">
+<div class="l">
+<div class="s-eyebrow" style="color:var(--aqua)">Pierwszy krok</div>
+<h2>Co dzieje się<br>na diagnostyce</h2>
+<ul class="ticks"><li>Badanie i wywiad: co dolega, co było już leczone</li><li>Tomografia i skan wewnątrzustny — na miejscu</li><li>Fotoprotokół do porównania efektu</li><li>Omówienie modelu 3D razem z lekarzem</li><li>Plan leczenia i kosztorys ze stałą ceną na piśmie</li></ul>
+<p>Recepcja oddzwoni w ciągu 15 minut w godzinach pracy i potwierdzi termin. Jeśli chcesz trafić do konkretnego lekarza — wybierz go w formularzu.</p>
+</div>
+<form class="r" id="bookForm" novalidate>
+<span class="pre-note" id="preNote"></span>
+<div class="field"><label for="bn">Imię</label><input id="bn" name="name" placeholder="Jak się do Ciebie zwracać" required><span class="hint" data-ok="Jak się do Ciebie zwracać" data-err="Podaj imię">Jak się do Ciebie zwracać</span></div>
+<div class="field"><label for="bp">Telefon</label><input id="bp" name="phone" type="tel" placeholder="+48 ___ ___ ___" required><span class="hint" data-ok="Oddzwonimy, nie piszemy na komunikatory bez zgody" data-err="Sprawdź numer: brakuje cyfr">Oddzwonimy, nie piszemy na komunikatory bez zgody</span></div>
+<div class="field"><label for="bs">Zakres</label><select id="bs" name="service"><option>Diagnostyka cyfrowa (ogólna)</option><option>Implantologia</option><option>Odbudowa estetyczna i licówki</option><option>Nakładki (alignery)</option><option>Profilaktyka i higiena</option><option>Druga opinia do obcego planu</option></select></div>
+<div class="field"><label for="bd">Lekarz</label><select id="bd" name="doctor"><option>Dowolny wolny termin</option><option>Kamil Zawadzki</option><option>Marta Grabowska</option><option>Artur Łaniecki</option><option>Paulina Wierzchoń</option></select></div>
+<div class="field"><label>Dogodny termin</label><div class="slots" id="slots"><button type="button" class="slot on">Dziś 15:30</button><button type="button" class="slot">Dziś 18:00</button><button type="button" class="slot">Jutro 10:00</button><button type="button" class="slot">Jutro 19:30</button><button type="button" class="slot">Proszę oddzwonić</button></div></div>
+<button class="btn btn-acc" type="submit" style="margin-top:4px">Zapisz się na diagnostykę cyfrową</button>
+<span class="ok-msg" id="okMsg"><span class="tag ok"><i></i>Wersja demonstracyjna</span> To strona koncepcyjna — zgłoszenie nie zostało nigdzie wysłane.</span>
+<span class="hint" style="color:oklch(0.972 0.008 85/.4);font-size:12.5px">Klikając przycisk, akceptujesz <a href="#" style="color:var(--aqua)">politykę przetwarzania danych osobowych</a>.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="s-sec tight" data-screen-label="Jak dojechać">
+<div class="s-wrap">
+<div class="s-head reveal"><div><div class="s-eyebrow">Dojazd</div><h2 class="s-h2" style="margin-top:14px">Jak dojechać</h2></div><p>Klinika jest sześć minut spacerem od stacji metra Politechnika. Wejście od strony podwórza, klatka 2.</p></div>
+<div class="cts">
+<div class="map ph reveal">Mapa: Warszawa, Śródmieście<br>schemat dojazdu</div>
+<div class="route reveal">
+<div><div class="n">01</div><div><h4>Metrem</h4><p>Stacja Politechnika, wyjście nr 2. W prawo w ul. Wilczą do numeru 21 — około 6 minut spacerem.</p></div></div>
+<div><div class="n">02</div><div><h4>Samochodem</h4><p>Wjazd na podwórze z ul. Wilczej między budynkami 19 i 21. Szlaban otwiera recepcja po numerze rejestracyjnym.</p></div></div>
+<div><div class="n">03</div><div><h4>Parking</h4><p>Cztery bezpłatne miejsca na podwórzu — rezerwujemy przy zapisie. Obok strefa płatnego parkowania, 4,50 zł/godz.</p></div></div>
+<div><div class="n">04</div><div><h4>W klinice</h4><p>Klatka 2, 3. piętro, w prawo od windy. Poczekaj na recepcjonistkę w holu — odprowadzi Cię do lekarza.</p></div></div>
+</div>
+</div>
+<div class="cts-info reveal" style="margin-top:20px">
+<div><b>Adres</b><p>ul. Wilcza 21, lok. 3<br>00-544 Warszawa</p></div>
+<div><b>Telefon</b><p><a href="tel:+48221204040">+48 22 120 40 40</a></p></div>
+<div><b>E-mail</b><p><a href="mailto:kontakt@luxdent.pl">kontakt@luxdent.pl</a></p></div>
+<div><b>Godziny pracy</b><p>Pn—Pt 09:00—21:00<br>Sb 10:00—18:00, Nd — nieczynne</p></div>
+</div>
+</div>
+</section>
+
+<section class="s-sec tight" data-screen-label="Pytania">
+<div class="s-wrap">
+<div class="s-head reveal"><div><div class="s-eyebrow">Pytania</div><h2 class="s-h2" style="margin-top:14px">Przed pierwszą wizytą</h2></div><p>Jeśli nie ma tu Twojego pytania — zadaj je recepcji telefonicznie, odpowiedź nie wymaga zapisu.</p></div>
+<div class="faq reveal">
+<details open><summary>Co zabrać ze sobą?</summary><p>Dokument tożsamości oraz — jeśli są — wcześniejsze zdjęcia, wypisy i plan leczenia z innej kliniki. Nie będziemy naświetlać Cię bez potrzeby: jeśli Twoja tomografia ma mniej niż rok i odpowiednią jakość, wykorzystamy ją.</p></details>
+<details><summary>Można przyjść tylko po drugą opinię?</summary><p>Tak. Przynieś tomografię i plan — omówimy go na wizycie, powiemy, co jest uzasadnione, a co nie, i przekażemy pisemne zalecenie. Leczenie u nas nie jest wtedy obowiązkowe.</p></details>
+<details><summary>Jak długo obowiązuje kosztorys?</summary><p>Kosztorys jest zapisany w umowie i nie zmienia się w trakcie leczenia. Jeśli w trakcie wyjdzie dodatkowy problem — zatrzymujemy się, pokazujemy zdjęcie i uzgadniamy zmiany osobno.</p></details>
+<details><summary>Przyjmujecie dzieci?</summary><p>Od 12 lat — higiena, leczenie zachowawcze i ortodoncja. Chirurgię i protetykę prowadzimy wyłącznie u pacjentów dorosłych.</p></details>
+</div>
+</div>
+</section>
+
+<script src="site-shell.js"></script>
+<script src="booking.js"></script>
+</body>
+</html>
