@@ -375,7 +375,7 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
   </section>
 
   <section class="finale" id="kontakt">
-    <div class="finale__media ph" data-label=""></div>
+    <div class="finale__media ph" data-label=""><video id="finalVideo" src="assets/final.mp4" poster="assets/final-end.jpg" muted playsinline preload="metadata" aria-label="Widok z drona: Gdańsk i Motława o zachodzie słońca"></video></div>
     <div class="wrap finale__grid">
       <div class="finale__left">
         <div class="label">Zapraszamy</div>
@@ -488,6 +488,17 @@ footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: s
   var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
   menuBtn.addEventListener('click', function () { menuBtn.setAttribute('aria-expanded', nav.classList.toggle('is-open')); });
   document.querySelectorAll('#menu a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', false); }); });
+
+  // Finale plays once each time it scrolls into view and holds on the last frame (the city from above).
+  var fin = document.getElementById('finalVideo');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { var pr = fin.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else if (e.boundingClientRect.top > 0) { fin.pause(); fin.currentTime = 0; }
+      });
+    }, { threshold: 0.4 }).observe(fin.parentNode);
+  }
 
   var dlg = document.getElementById('bookDialog');
   document.addEventListener('click', function (e) {
