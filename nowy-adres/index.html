@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nowy Adres — nieruchomości w Gdańsku</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nowy Adres — biuro nieruchomości w Gdańsku. Mieszkania i domy nad morzem, dzielnice, kalkulator kredytu. Projekt koncepcyjny.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+<style>
+/* Terracotta and limestone: a warm Mediterranean-modern estate agency by the Baltic.
+   Layout: video hero with a working search → listings that the search filters → districts on graphite → live mortgage calculator → agents and reviews → sunset finale with contacts. */
+:root {
+  --terra: #c2643f;
+  --terra-deep: #9e4a2c;
+  --stone: #efe8dd;
+  --paper: #f7f2ea;
+  --graphite: #2b2b2b;
+  --brass: #b08d57;
+  --ink: #241f1c;
+  --muted: #6f655d;
+  --line: rgba(36,31,28,.14);
+  --display: "DM Serif Display", "Iowan Old Style", Georgia, serif;
+  --body: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", Arial, sans-serif;
+  --gutter: max(20px, 4vw);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--paper); }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.65 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--graphite); }
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+.wrap { width: 100%; max-width: 1280px; margin-inline: auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+.label { font: 600 12px/1.2 var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--terra); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; }
+h1 em, h2 em { font-style: italic; color: var(--terra); }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border-radius: 6px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); font: 600 14.5px/1 var(--body); cursor: pointer; transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn--terra { background: var(--terra); border-color: var(--terra); color: #fff; }
+.btn--terra:hover { background: var(--terra-deep); border-color: var(--terra-deep); }
+.btn--light { border-color: rgba(255,255,255,.5); color: #fff; }
+.btn--light:hover { background: #fff; color: var(--ink); }
+.btn svg { width: 16px; height: 16px; }
+
+/* demo strip + nav */
+.demo { background: var(--graphite); color: #e8dfd3; text-align: center; font: 500 11px/1.4 var(--body); letter-spacing: .16em; text-transform: uppercase; padding: 9px var(--gutter); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(247,242,234,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 14px; }
+.logo { display: flex; align-items: center; gap: 12px; line-height: 1; }
+.logo__mark { width: 40px; height: 40px; border-radius: 8px; background: var(--terra); display: grid; place-items: center; color: #fff; }
+.logo__mark svg { width: 22px; height: 22px; }
+.logo b { display: block; font: 400 25px/1 var(--display); }
+.logo small { display: block; margin-top: 4px; font: 500 10px/1 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 14.5px; font-weight: 500; }
+.nav ul a { padding-block: 6px; border-bottom: 2px solid transparent; transition: border-color .25s ease; }
+.nav ul a:hover { border-color: var(--terra); }
+.menu-btn { display: none; width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.menu-btn svg { width: 18px; height: 18px; margin: auto; }
+
+/* placeholders until photos and videos arrive */
+.ph { position: relative; overflow: hidden; background-color: #e6dccd;
+  background-image: radial-gradient(90% 70% at 25% 20%, rgba(255,255,255,.6), transparent 60%), radial-gradient(70% 60% at 85% 85%, rgba(194,100,63,.3), transparent 60%), linear-gradient(160deg, #eee5d8, #d9c7b2 60%, #e8dccd); }
+.ph::after { content: attr(data-label); position: absolute; left: 16px; bottom: 14px; font: italic 400 15px/1 var(--display); color: rgba(36,31,28,.45); }
+.ph img, .ph video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph:has(img, video)::after { content: none; }
+
+/* hero with search */
+.hero { position: relative; isolation: isolate; min-height: calc(100svh - 110px); display: flex; align-items: flex-end; color: #fff; }
+.hero__media { position: absolute; inset: 0; z-index: -2; background-color: #8a6a55; }
+.hero__media.ph::after { color: rgba(255,255,255,.6); left: auto; right: 20px; top: 20px; bottom: auto; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(36,31,28,.72) 0%, rgba(36,31,28,.35) 45%, transparent 70%), linear-gradient(0deg, rgba(36,31,28,.7) 0%, transparent 40%); }
+.hero__inner { padding-block: 100px 48px; display: grid; gap: 26px; }
+.hero .label { color: #f2c2a6; }
+.hero h1 { font-size: clamp(46px, 6.6vw, 98px); line-height: .98; max-width: 11ch; }
+.hero h1 em { color: #f2c2a6; }
+.hero p { margin: 0; max-width: 46ch; color: rgba(255,255,255,.85); font-size: clamp(16px, 1.3vw, 18.5px); }
+.search { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 0; background: #fff; color: var(--ink); border-radius: 10px; padding: 8px; max-width: 900px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); }
+.search .f { display: grid; gap: 2px; padding: 8px 16px; border-right: 1px solid var(--line); min-width: 0; }
+.search label { font: 600 11px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.search select { border: 0; background: transparent; font: 500 15.5px/1.3 var(--body); color: var(--ink); padding: 2px 0; cursor: pointer; width: 100%; }
+.search select:focus { outline: none; }
+.search .btn { margin-left: 8px; }
+.hero__facts { display: flex; flex-wrap: wrap; gap: 34px; font-size: 13.5px; color: rgba(255,255,255,.8); }
+.hero__facts b { display: block; font: 400 30px/1.1 var(--display); color: #fff; }
+
+/* listings */
+.offers { padding-block: 110px 100px; }
+.head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 44px; }
+.head > div { display: grid; gap: 14px; max-width: 640px; }
+.head h2 { font-size: clamp(36px, 4.6vw, 62px); line-height: 1.02; }
+.head p { margin: 0; color: var(--muted); }
+.head > .chips { display: flex; flex-wrap: wrap; gap: 8px; max-width: 560px; justify-content: flex-end; }
+@media (max-width: 860px) { .head > .chips { justify-content: flex-start; } }
+.chip { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: transparent; font: 500 14px/1 var(--body); color: var(--ink); cursor: pointer; transition: all .2s ease; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.listing { display: grid; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 0 var(--line); transition: transform .35s ease, box-shadow .35s ease; min-width: 0; }
+.listing:hover { transform: translateY(-4px); box-shadow: 0 24px 40px -26px rgba(36,31,28,.45); }
+.listing .ph { aspect-ratio: 4 / 3; }
+.listing .ph img { transition: transform .9s ease; }
+.listing:hover .ph img { transform: scale(1.05); }
+.badge { position: absolute; left: 14px; top: 14px; z-index: 1; padding: 6px 10px; border-radius: 4px; background: var(--terra); color: #fff; font: 600 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; }
+.listing__body { padding: 20px 22px 22px; display: grid; gap: 10px; }
+.listing__price { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.listing__price b { font: 400 28px/1 var(--display); }
+.listing__price span { font-size: 13px; color: var(--muted); }
+.listing h3 { font: 600 17px/1.3 var(--body); }
+.listing .where { color: var(--muted); font-size: 14px; display: flex; gap: 6px; align-items: center; }
+.listing .where svg { width: 14px; height: 14px; color: var(--terra); }
+.specs { display: flex; gap: 18px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--muted); }
+.specs b { color: var(--ink); font-weight: 600; }
+.listing .btn { margin-top: 6px; padding: 12px 18px; }
+.empty { grid-column: 1 / -1; padding: 40px; border: 1px dashed var(--line); border-radius: 12px; text-align: center; color: var(--muted); }
+
+/* districts on graphite */
+.districts { background: var(--graphite); color: #f1ebe2; padding-block: 110px; --line: rgba(241,235,226,.16); --muted: #b9afa4; }
+.districts h2 em { color: #e59a74; }
+.dgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.district { display: grid; gap: 14px; min-width: 0; }
+.district .ph { aspect-ratio: 3 / 4; border-radius: 10px; background-color: #4a3e36; }
+.district h3 { font-size: 28px; }
+.district p { margin: 0; color: var(--muted); font-size: 14.5px; }
+.district .avg { font-size: 13.5px; padding-top: 10px; border-top: 1px solid var(--line); }
+.district .avg b { color: #e59a74; font-weight: 600; }
+
+/* calculator */
+.calc { padding-block: 110px; background: var(--stone); }
+.calc__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 50px; align-items: start; }
+.calc__form { display: grid; gap: 30px; background: #fff; padding: 36px; border-radius: 14px; }
+.slider { display: grid; gap: 12px; }
+.slider__top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.slider label { font-weight: 600; font-size: 15px; }
+.slider output { font: 400 24px/1 var(--display); color: var(--terra-deep); }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 99px; background: linear-gradient(90deg, var(--terra) var(--p, 50%), #e7ddcf var(--p, 50%)); cursor: pointer; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid var(--terra); box-shadow: 0 4px 10px rgba(0,0,0,.18); }
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 2px solid var(--terra); }
+.slider small { color: var(--muted); font-size: 12.5px; display: flex; justify-content: space-between; }
+.result { background: var(--terra); color: #fff; padding: 36px; border-radius: 14px; display: grid; gap: 20px; position: sticky; top: 110px; }
+.result .label { color: #ffe0cf; }
+.result .big { font: 400 clamp(46px, 5.4vw, 72px)/1 var(--display); }
+.result .big span { font: 500 17px/1 var(--body); margin-left: 6px; opacity: .85; }
+.result dl { margin: 0; display: grid; gap: 10px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.3); }
+.result dl div { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; }
+.result dt { opacity: .85; }
+.result dd { margin: 0; font-weight: 600; }
+.result .btn { background: #fff; border-color: #fff; color: var(--terra-deep); }
+.result small { opacity: .8; font-size: 12.5px; }
+
+/* agents + reviews */
+.team { padding-block: 110px; }
+.agents { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.agent { margin: 0; display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center; padding: 18px; background: #fff; border-radius: 12px; min-width: 0; }
+.agent .ph { aspect-ratio: 1; border-radius: 50%; }
+.agent b { display: block; font: 400 22px/1.2 var(--display); }
+.agent span { color: var(--muted); font-size: 14px; }
+.agent em { display: block; font-style: normal; color: var(--terra); font-size: 13.5px; font-weight: 600; margin-top: 4px; }
+.reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 70px; }
+.review { margin: 0; padding: 28px; border-top: 3px solid var(--terra); background: var(--stone); border-radius: 0 0 12px 12px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.review blockquote { margin: 0; font: 400 20px/1.45 var(--display); }
+.review figcaption { font-size: 14px; color: var(--muted); }
+.review figcaption b { color: var(--ink); }
+
+/* finale */
+.finale { position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; display: flex; flex-direction: column; background: var(--graphite); color: #fff; --line: rgba(255,255,255,.2); --muted: #d9cfc4; }
+.finale__media { position: absolute; inset: 0; z-index: -2; background-color: #6b4a3a; }
+.finale__media.ph::after { content: none; }
+.finale::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(36,31,28,.85) 0%, rgba(36,31,28,.45) 28%, transparent 42%, transparent 60%, rgba(36,31,28,.45) 74%, rgba(36,31,28,.85) 100%), linear-gradient(180deg, rgba(36,31,28,.35) 0%, transparent 22%, transparent 78%, var(--graphite) 100%); }
+.finale__grid { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 40px; padding-block: 110px 30px; }
+.finale__left { display: grid; gap: 24px; max-width: 400px; }
+.finale .label { color: #f2c2a6; }
+.finale h2 { font-size: clamp(40px, 4.6vw, 68px); line-height: 1; }
+.finale h2 em { color: #f2c2a6; }
+.finale__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.finale__right { justify-self: end; display: grid; gap: 24px; justify-items: end; text-align: right; max-width: 300px; }
+.info { display: grid; gap: 20px; }
+.info div { display: grid; gap: 4px; min-width: 0; }
+.info small { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #f2c2a6; font-weight: 600; }
+.info span { font-size: 15px; line-height: 1.5; }
+.info .big { font: 400 24px/1.3 var(--display); }
+.socials { display: flex; gap: 10px; }
+.social { width: 46px; height: 46px; border-radius: 8px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.4); transition: background .25s ease, color .25s ease; }
+.social:hover { background: #fff; color: var(--ink); }
+.social svg { width: 18px; height: 18px; }
+footer { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+/* booking dialog */
+.dialog { width: min(480px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 14px; background: var(--paper); color: var(--ink); box-shadow: 0 40px 80px -30px rgba(0,0,0,.55); }
+.dialog::backdrop { background: rgba(36,31,28,.5); backdrop-filter: blur(5px); }
+.book { padding: 36px 30px 28px; display: grid; gap: 14px; position: relative; }
+.book h3 { font-size: 32px; }
+.book h3 em { font-style: italic; color: var(--terra); }
+.book > p { margin: -6px 0 4px; color: var(--muted); font-size: 15px; }
+.close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.close svg { width: 16px; height: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select { width: 100%; padding: 13px 14px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: 400 15px/1.2 var(--body); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 3px rgba(194,100,63,.18); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ok { margin: 0; padding: 13px 15px; background: var(--stone); border-radius: 8px; font-size: 14.5px; }
+
+/* responsive */
+@media (max-width: 1080px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agents, .reviews { grid-template-columns: minmax(0, 1fr); max-width: 620px; }
+  .calc__grid { grid-template-columns: minmax(0, 1fr); }
+  .result { position: static; }
+}
+@media (max-width: 860px) {
+  .nav ul, .nav .btn { display: none; }
+  .menu-btn { display: grid; }
+  .nav.is-open ul { display: grid; position: absolute; top: 100%; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 6px max(var(--gutter), env(safe-area-inset-right, 0px)) 16px max(var(--gutter), env(safe-area-inset-left, 0px)); gap: 0; }
+  .nav.is-open ul a { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .search { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .search .f { border-right: 0; border-bottom: 1px solid var(--line); }
+  .search .btn { grid-column: 1 / -1; margin: 8px 0 0; }
+  .finale { min-height: 0; }
+  .finale__media { position: relative; inset: auto; aspect-ratio: 16 / 9; z-index: 0; }
+  .finale::before { content: none; }
+  .finale__grid { grid-template-columns: minmax(0, 1fr); padding-block: 40px 20px; }
+  .finale__left { max-width: none; }
+  .finale__right { justify-self: start; justify-items: start; text-align: left; max-width: none; }
+}
+@media (max-width: 600px) {
+  .grid, .dgrid { grid-template-columns: minmax(0, 1fr); }
+  .offers, .districts, .calc, .team { padding-block: 80px; }
+  .calc__form, .result { padding: 26px 20px; }
+  .row2 { grid-template-columns: minmax(0, 1fr); }
+  .info { grid-template-columns: 1fr 1fr; gap: 18px 14px; }
+  .info .big { font-size: 18px; }
+  .book { padding: 32px 20px 22px; }
+  .agent { grid-template-columns: 72px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="demo">Projekt koncepcyjny · fikcyjne biuro · portfolio Nataliia Zhyhalova</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Nowy Adres, strona główna">
+      <span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></span>
+      <span><b>Nowy Adres</b><small>Nieruchomości · Gdańsk</small></span>
+    </a>
+    <ul id="menu">
+      <li><a href="#oferty">Oferty</a></li>
+      <li><a href="#dzielnice">Dzielnice</a></li>
+      <li><a href="#kalkulator">Kalkulator</a></li>
+      <li><a href="#agenci">Agenci</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn btn--terra" href="#book">Umów oglądanie</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M3 16h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="hero__media ph" data-label="Wideo: lot nad mieszkaniem z widokiem na morze"></div>
+    <div class="wrap hero__inner">
+      <div class="label">Biuro nieruchomości · Gdańsk</div>
+      <h1>Twój nowy adres <em>nad morzem.</em></h1>
+      <p>Mieszkania i domy w najpiękniejszych dzielnicach Gdańska. Pokażemy Ci miejsca, w których od razu poczujesz się u siebie.</p>
+      <form class="search" id="search" aria-label="Szukaj nieruchomości">
+        <div class="f"><label for="s-area">Dzielnica</label>
+          <select id="s-area"><option value="">Wszystkie</option><option>Śródmieście</option><option>Wrzeszcz</option><option>Oliwa</option><option>Jelitkowo</option><option>Brzeźno</option></select></div>
+        <div class="f"><label for="s-rooms">Pokoje</label>
+          <select id="s-rooms"><option value="0">Dowolnie</option><option value="1">od 1</option><option value="2">od 2</option><option value="3">od 3</option><option value="4">od 4</option></select></div>
+        <div class="f"><label for="s-price">Cena do</label>
+          <select id="s-price"><option value="0">Bez limitu</option><option value="600000">600 000 zł</option><option value="1000000">1 000 000 zł</option><option value="1500000">1 500 000 zł</option><option value="2500000">2 500 000 zł</option></select></div>
+        <button class="btn btn--terra" type="submit">Szukaj
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      </form>
+      <div class="hero__facts">
+        <div><b class="num">340</b>ofert w bazie</div>
+        <div><b class="num">1 800</b>przekazanych kluczy</div>
+        <div><b class="num">12 lat</b>na rynku Trójmiasta</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offers wrap" id="oferty">
+    <div class="head">
+      <div>
+        <div class="label">Oferty</div>
+        <h2>Mieszkania, które <em>warto zobaczyć</em></h2>
+        <p>Każdą ofertę sprawdzamy osobiście: księgę wieczystą, stan techniczny i okolicę.</p>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filtruj według dzielnicy"></div>
+    </div>
+    <div class="grid" id="listings"></div>
+  </section>
+
+  <section class="districts" id="dzielnice">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label" style="color:#e59a74">Dzielnice</div>
+          <h2>Gdańsk ma wiele <em>twarzy</em></h2>
+          <p>Pomożemy wybrać dzielnicę pod Twój styl życia, a nie tylko pod budżet.</p>
+        </div>
+      </div>
+      <div class="dgrid">
+        <article class="district"><div class="ph" data-label="Śródmieście"></div><h3>Śródmieście</h3><p>Kamienice nad Motławą, kawiarnie i życie do późna.</p><div class="avg">Średnio <b class="num">17 800 zł/m²</b></div></article>
+        <article class="district"><div class="ph" data-label="Wrzeszcz"></div><h3>Wrzeszcz</h3><p>Zielone uliczki, SKM pod ręką i dużo młodych rodzin.</p><div class="avg">Średnio <b class="num">13 900 zł/m²</b></div></article>
+        <article class="district"><div class="ph" data-label="Oliwa"></div><h3>Oliwa</h3><p>Park, katedra i spokojne domy z ogrodami.</p><div class="avg">Średnio <b class="num">14 600 zł/m²</b></div></article>
+        <article class="district"><div class="ph" data-label="Jelitkowo"></div><h3>Jelitkowo</h3><p>Plaża za rogiem i poranki z widokiem na zatokę.</p><div class="avg">Średnio <b class="num">19 500 zł/m²</b></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc" id="kalkulator">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Kalkulator kredytu</div>
+          <h2>Ile będzie kosztować <em>Twoja rata?</em></h2>
+          <p>Przesuń suwaki i od razu zobacz miesięczną ratę. Nasz doradca kredytowy pomoże znaleźć lepszą ofertę.</p>
+        </div>
+      </div>
+      <div class="calc__grid">
+        <form class="calc__form" id="calc" aria-label="Kalkulator kredytu hipotecznego">
+          <div class="slider"><div class="slider__top"><label for="c-price">Cena nieruchomości</label><output id="o-price" class="num"></output></div>
+            <input id="c-price" type="range" min="300000" max="3000000" step="10000" value="890000"><small><span>300 tys.</span><span>3 mln</span></small></div>
+          <div class="slider"><div class="slider__top"><label for="c-down">Wkład własny</label><output id="o-down" class="num"></output></div>
+            <input id="c-down" type="range" min="10" max="50" step="1" value="20"><small><span>10%</span><span>50%</span></small></div>
+          <div class="slider"><div class="slider__top"><label for="c-years">Okres kredytu</label><output id="o-years" class="num"></output></div>
+            <input id="c-years" type="range" min="10" max="35" step="1" value="30"><small><span>10 lat</span><span>35 lat</span></small></div>
+          <div class="slider"><div class="slider__top"><label for="c-rate">Oprocentowanie</label><output id="o-rate" class="num"></output></div>
+            <input id="c-rate" type="range" min="4" max="9" step="0.1" value="7.2"><small><span>4%</span><span>9%</span></small></div>
+        </form>
+        <div class="result" aria-live="polite">
+          <div class="label">Miesięczna rata</div>
+          <div class="big num" id="r-month">0<span>zł</span></div>
+          <dl>
+            <div><dt>Kwota kredytu</dt><dd class="num" id="r-loan"></dd></div>
+            <div><dt>Wkład własny</dt><dd class="num" id="r-down"></dd></div>
+            <div><dt>Suma odsetek</dt><dd class="num" id="r-interest"></dd></div>
+          </dl>
+          <a class="btn" href="#book" data-pick="Konsultacja kredytowa">Porozmawiaj z doradcą</a>
+          <small>Kalkulacja orientacyjna, raty równe. Nie jest ofertą banku.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team wrap" id="agenci">
+    <div class="head">
+      <div>
+        <div class="label">Agenci</div>
+        <h2>Ludzie, którzy znają <em>każdą ulicę</em></h2>
+      </div>
+    </div>
+    <div class="agents">
+      <figure class="agent"><div class="ph" data-label=""></div><figcaption><b>Karolina Mazur</b><span>Śródmieście i Wrzeszcz</span><em>140 sprzedanych mieszkań</em></figcaption></figure>
+      <figure class="agent"><div class="ph" data-label=""></div><figcaption><b>Piotr Lewandowski</b><span>Domy w Oliwie i Sopocie</span><em>12 lat doświadczenia</em></figcaption></figure>
+      <figure class="agent"><div class="ph" data-label=""></div><figcaption><b>Zofia Kamińska</b><span>Apartamenty nad morzem</span><em>doradca kredytowy</em></figcaption></figure>
+    </div>
+    <div class="reviews">
+      <figure class="review"><blockquote>Szukaliśmy pół roku sami. Z Karoliną znaleźliśmy mieszkanie we Wrzeszczu w trzy tygodnie.</blockquote><figcaption><b>Ania i Tomek</b> · kupili 3 pokoje, 2026</figcaption></figure>
+      <figure class="review"><blockquote>Piotr sprawdził księgę wieczystą i wyłapał problem, którego nikt inny nie zauważył. Spokojna głowa.</blockquote><figcaption><b>Marek</b> · dom w Oliwie, 2025</figcaption></figure>
+      <figure class="review"><blockquote>Kalkulator na stronie, a potem rozmowa z Zofią. Rata wyszła o 400 zł niższa niż w moim banku.</blockquote><figcaption><b>Ewa</b> · apartament w Jelitkowie, 2026</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="finale" id="kontakt">
+    <div class="finale__media ph" data-label=""></div>
+    <div class="wrap finale__grid">
+      <div class="finale__left">
+        <div class="label">Zapraszamy</div>
+        <h2>Klucze czekają <em>na Ciebie</em></h2>
+        <div class="finale__btns">
+          <a class="btn btn--terra" href="#book">Umów oglądanie
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--light" href="tel:+48583004141">Zadzwoń</a>
+        </div>
+      </div>
+      <div class="finale__right">
+        <div class="info">
+          <div><small>Biuro</small><span>ul. Grunwaldzka 88<br>80-244 Gdańsk</span></div>
+          <div><small>Telefon</small><span class="big num">+48 58 300 41 41</span></div>
+          <div><small>Godziny</small><span>Pn – Pt 9:00 – 18:00<br>Sob 10:00 – 14:00</span></div>
+          <div><small>E-mail</small><span>biuro@nowyadres.pl</span></div>
+        </div>
+        <div class="socials">
+          <a class="social" href="#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a class="social" href="#kontakt" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 00-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.4V21z"/></svg></a>
+          <a class="social" href="#kontakt" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5H3.5V20h3zM5 3.5a1.75 1.75 0 100 3.5 1.75 1.75 0 000-3.5zM20.5 13.3c0-3-1.6-4.9-4.2-4.9-1.4 0-2.4.7-2.8 1.4V8.5h-3V20h3v-6.1c0-1.5.7-2.5 2-2.5s1.9.9 1.9 2.5V20h3.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <footer>
+        <span>© 2026 Nowy Adres · koncept biura nieruchomości</span>
+        <span>Projekt i wizualizacje: Nataliia Zhyhalova</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<dialog class="dialog" id="bookDialog" aria-label="Umów oglądanie">
+  <form class="book" id="bookForm" novalidate>
+    <button class="close" type="button" id="bookClose" aria-label="Zamknij"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h3>Umów <em>oglądanie</em></h3>
+    <p>Agent oddzwoni w ciągu godziny i zaproponuje termin.</p>
+    <div class="row2">
+      <div class="field"><label for="f-name">Imię</label><input id="f-name" name="name" autocomplete="given-name" placeholder="Anna" required></div>
+      <div class="field"><label for="f-phone">Telefon</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+48 600 000 000" required></div>
+    </div>
+    <div class="field"><label for="f-pick">Oferta</label><select id="f-pick" name="pick"></select></div>
+    <div class="field"><label for="f-date">Preferowany termin</label><input id="f-date" name="date" type="date"></div>
+    <button class="btn btn--terra" type="submit">Wyślij zgłoszenie</button>
+    <p class="ok" id="bookOk" hidden>Dziękujemy! To strona demonstracyjna, więc zgłoszenie nie zostało wysłane.</p>
+  </form>
+</dialog>
+
+<script>
+(function () {
+  var fmt = function (n) { return Math.round(n).toLocaleString('pl-PL').replace(/,/g, ' ') + ' zł'; };
+  var pin = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+  var listings = [
+    { id: 'jelitkowo', title: 'Apartament z widokiem na morze', area: 'Jelitkowo', street: 'ul. Kaplicza', m2: 68, rooms: 3, floor: '5/7', price: 1290000, badge: 'Widok na morze', img: '' },
+    { id: 'wrzeszcz', title: 'Mieszkanie w odnowionej kamienicy', area: 'Wrzeszcz', street: 'ul. Lendziona', m2: 54, rooms: 2, floor: '2/4', price: 689000, badge: 'Nowość', img: '' },
+    { id: 'motlawa', title: 'Loft przy Motławie', area: 'Śródmieście', street: 'ul. Chmielna', m2: 82, rooms: 3, floor: '4/6', price: 1450000, badge: 'Loft', img: '' },
+    { id: 'oliwa', title: 'Dom z ogrodem przy parku', area: 'Oliwa', street: 'ul. Opacka', m2: 156, rooms: 5, floor: 'dom', price: 2190000, badge: 'Ogród 400 m²', img: '' },
+    { id: 'kawalerka', title: 'Kawalerka blisko SKM', area: 'Wrzeszcz', street: 'ul. Grunwaldzka', m2: 31, rooms: 1, floor: '3/5', price: 429000, badge: 'Pod inwestycję', img: '' },
+    { id: 'brzezno', title: 'Penthouse z tarasem', area: 'Brzeźno', street: 'ul. Zdrojowa', m2: 118, rooms: 4, floor: '8/8', price: 2650000, badge: 'Taras 60 m²', img: '' }
+  ];
+  var grid = document.getElementById('listings'), chips = document.getElementById('chips'), pick = document.getElementById('f-pick');
+  var state = { area: '', rooms: 0, price: 0 };
+  ['Wszystkie', 'Śródmieście', 'Wrzeszcz', 'Oliwa', 'Jelitkowo', 'Brzeźno'].forEach(function (a) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = a; b.dataset.area = a === 'Wszystkie' ? '' : a;
+    b.addEventListener('click', function () { state.area = b.dataset.area; document.getElementById('s-area').value = state.area; render(); });
+    chips.appendChild(b);
+  });
+  listings.forEach(function (l) { var o = document.createElement('option'); o.textContent = l.title + ' · ' + l.area; pick.appendChild(o); });
+  ['Konsultacja kredytowa', 'Wycena mojej nieruchomości'].forEach(function (t) { var o = document.createElement('option'); o.textContent = t; pick.appendChild(o); });
+  function card(l) {
+    var media = l.img ? '<img src="' + l.img + '" alt="' + l.title + ', ' + l.area + '" loading="lazy">' : '';
+    return '<article class="listing"><div class="ph" data-label="' + l.title + '"><span class="badge">' + l.badge + '</span>' + media + '</div>' +
+      '<div class="listing__body"><div class="listing__price"><b class="num">' + fmt(l.price) + '</b><span class="num">' + fmt(l.price / l.m2) + '/m²</span></div>' +
+      '<h3>' + l.title + '</h3><div class="where">' + pin + l.area + ', ' + l.street + '</div>' +
+      '<div class="specs"><span><b class="num">' + l.m2 + '</b> m²</span><span><b>' + l.rooms + '</b> ' + (l.rooms === 1 ? 'pokój' : l.rooms < 5 ? 'pokoje' : 'pokoi') + '</span><span>' + (l.floor === 'dom' ? 'dom' : 'piętro <b>' + l.floor + '</b>') + '</span></div>' +
+      '<a class="btn" href="#book" data-pick="' + l.title + ' · ' + l.area + '">Umów oglądanie</a></div></article>';
+  }
+  function render() {
+    var list = listings.filter(function (l) { return (!state.area || l.area === state.area) && l.rooms >= state.rooms && (!state.price || l.price <= state.price); });
+    grid.innerHTML = list.length ? list.map(card).join('') : '<p class="empty">Brak ofert dla tych kryteriów. Zostaw numer, a agent znajdzie coś poza bazą.</p>';
+    chips.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.area === state.area); });
+  }
+  document.getElementById('search').addEventListener('submit', function (e) {
+    e.preventDefault();
+    state.area = document.getElementById('s-area').value; state.rooms = +document.getElementById('s-rooms').value; state.price = +document.getElementById('s-price').value;
+    render(); document.getElementById('oferty').scrollIntoView();
+  });
+  render();
+
+  // Mortgage calculator: equal instalments, updates live as sliders move.
+  var ids = ['price', 'down', 'years', 'rate'], el = {};
+  ids.forEach(function (k) { el[k] = document.getElementById('c-' + k); el[k].addEventListener('input', calc); });
+  function calc() {
+    ids.forEach(function (k) { var i = el[k]; i.style.setProperty('--p', ((i.value - i.min) / (i.max - i.min) * 100) + '%'); });
+    var price = +el.price.value, downPct = +el.down.value, years = +el.years.value, rate = +el.rate.value;
+    var down = price * downPct / 100, loan = price - down, r = rate / 100 / 12, n = years * 12;
+    var month = loan * r / (1 - Math.pow(1 + r, -n));
+    document.getElementById('o-price').textContent = fmt(price);
+    document.getElementById('o-down').textContent = downPct + '%';
+    document.getElementById('o-years').textContent = years + ' lat';
+    document.getElementById('o-rate').textContent = rate.toFixed(1).replace('.', ',') + '%';
+    document.getElementById('r-month').innerHTML = Math.round(month).toLocaleString('pl-PL').replace(/,/g, ' ') + '<span>zł</span>';
+    document.getElementById('r-loan').textContent = fmt(loan);
+    document.getElementById('r-down').textContent = fmt(down);
+    document.getElementById('r-interest').textContent = fmt(month * n - loan);
+  }
+  calc();
+
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', function () { menuBtn.setAttribute('aria-expanded', nav.classList.toggle('is-open')); });
+  document.querySelectorAll('#menu a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', false); }); });
+
+  var dlg = document.getElementById('bookDialog');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href="#book"]');
+    if (!a) return;
+    e.preventDefault();
+    if (a.dataset.pick) pick.value = a.dataset.pick;
+    document.getElementById('bookOk').hidden = true;
+    if (dlg.showModal) dlg.showModal(); else location.hash = 'kontakt';
+  });
+  document.getElementById('bookClose').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  document.getElementById('bookForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('f-name'), phone = document.getElementById('f-phone');
+    var bad = [name, phone].filter(function (f) { return !f.value.trim(); });
+    [name, phone].forEach(function (f) { f.style.borderColor = bad.indexOf(f) > -1 ? 'var(--terra)' : ''; });
+    if (bad.length) { bad[0].focus(); return; }
+    document.getElementById('bookOk').hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
