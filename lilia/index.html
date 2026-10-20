@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biała Lilia — salon sukien ślubnych</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Biała Lilia — salon sukien ślubnych w Krakowie. Prywatne przymiarki, ponad 300 sukien, poprawki krawieckie w cenie. Projekt koncepcyjny.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Black-and-white bridal lookbook: white and black sections alternate like a fashion editorial.
+   Layout: a bridal lookbook. Light arrival (veil hero) → silk-lined collections → the fitting ritual → accessories and brides' words → the bride walks away, contacts float above. */
+:root {
+  --paper: #ffffff;
+  --ivory: #f3f3f1;
+  --silk: #e7e7e5;
+  --champagne: #bdbdbb;
+  --gold: #111111;
+  --rose: #8e8e8c;
+  --ink: #0d0d0d;
+  --muted: #6f6f6d;
+  --line: rgba(13,13,13,.14);
+  --night: #0b0b0b;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Jost", "Futura", "Avenir Next", Arial, sans-serif;
+  --gutter: max(20px, 4vw);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--paper); }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 300 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 1.5px solid var(--gold); outline-offset: 4px; }
+.wrap {
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.label { font: 400 12px/1.2 var(--body); letter-spacing: .34em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 16px; }
+.label::before { content: ""; width: 40px; height: 1px; background: currentColor; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; }
+h1 em, h2 em { font-style: italic; color: var(--gold); }
+
+/* buttons: ivory with a thin gold edge */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; border-radius: 999px;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--gold);
+  font: 400 13px/1 var(--body); letter-spacing: .2em; text-transform: uppercase; cursor: pointer;
+  transition: background .4s ease, color .4s ease, box-shadow .4s ease;
+}
+.btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); box-shadow: 0 14px 30px -16px rgba(0,0,0,.6); }
+.btn--solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn--solid:hover { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+.btn--ghost { border-color: var(--line); background: transparent; }
+.btn svg { width: 16px; height: 16px; }
+
+/* demo strip + header */
+.demo { background: var(--ink); color: #f2f2f2; text-align: center; font: 400 10.5px/1.4 var(--body); letter-spacing: .24em; text-transform: uppercase; padding: 9px var(--gutter); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(255,255,255,.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; }
+.logo { display: grid; line-height: 1; gap: 6px; }
+.logo b { font: italic 400 30px/1 var(--display); letter-spacing: -.01em; }
+.logo small { font: 400 9px/1 var(--body); letter-spacing: .42em; text-transform: uppercase; color: var(--muted); }
+.nav ul { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 14px; letter-spacing: .06em; }
+.nav ul a { position: relative; padding-block: 6px; }
+.nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform .35s ease; }
+.nav ul a:hover::after { transform: scaleX(1); }
+.menu-btn { display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.menu-btn svg { width: 18px; height: 18px; margin: auto; }
+
+/* image slots: soft silk placeholders until the photos arrive */
+.ph {
+  position: relative; overflow: hidden; background-color: var(--silk);
+  background-image:
+    radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,.95), transparent 55%),
+    radial-gradient(90% 70% at 85% 90%, rgba(0,0,0,.12), transparent 60%),
+    linear-gradient(160deg, #f4f4f3 0%, #d9d9d7 55%, #ececeb 100%);
+}
+.ph::after {
+  content: attr(data-label); position: absolute; left: 18px; bottom: 16px;
+  font: italic 400 15px/1 var(--display); color: rgba(13,13,13,.4);
+}
+.ph img, .ph video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+.ph:has(img, video)::after { content: none; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); min-height: calc(100svh - 110px); }
+.hero__copy { display: grid; align-content: center; gap: 28px; padding: 70px max(var(--gutter), env(safe-area-inset-left, 0px)) 70px max(var(--gutter), env(safe-area-inset-left, 0px)); max-width: 680px; justify-self: end; width: 100%; }
+.hero h1 { font-size: clamp(46px, 6.4vw, 96px); line-height: 1; letter-spacing: -.015em; }
+.hero p { margin: 0; max-width: 44ch; color: var(--muted); font-size: clamp(16px, 1.3vw, 19px); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__facts { display: flex; gap: 34px; padding-top: 26px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+.hero__facts b { display: block; font: 400 30px/1.1 var(--display); color: var(--ink); font-variant-numeric: lining-nums; }
+.hero__media { min-height: 520px; border-bottom-left-radius: 240px 220px; }
+.hero__media::before {
+  content: ""; position: absolute; inset: -20%; pointer-events: none; z-index: 1; mix-blend-mode: soft-light;
+  background: repeating-linear-gradient(105deg, transparent 0 60px, rgba(255,255,255,.55) 60px 120px, transparent 120px 200px);
+  animation: rays 14s linear infinite;
+}
+@keyframes rays { to { transform: translateX(200px); } }
+.petals { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.petals i {
+  position: absolute; top: -40px; width: 14px; height: 18px; border-radius: 80% 0 80% 0; opacity: .8;
+  background: linear-gradient(135deg, #fff 0%, #e2e2e0 70%);
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: .85; }
+  100% { transform: translate(var(--dx, 80px), 110vh) rotate(540deg); opacity: 0; }
+}
+.hero__badge {
+  position: absolute; left: 34px; bottom: 34px; z-index: 3; display: grid; gap: 4px;
+  padding: 18px 22px; background: rgba(255,255,255,.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 4px;
+}
+.hero__badge small { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+.hero__badge b { font: italic 400 22px/1.2 var(--display); }
+
+/* collections on silk */
+.silk { position: relative; isolation: isolate; overflow: hidden; padding-block: 130px 120px; background: var(--night); color: #f2f2f2;
+  --line: rgba(255,255,255,.16); --muted: #a3a3a1; --gold: #ffffff; }
+.silk__bg { position: absolute; inset: 0; z-index: -1; }
+.silk__bg video { width: 100%; height: 100%; object-fit: cover; opacity: .45; filter: grayscale(1); }
+.silk__bg::before {
+  content: ""; position: absolute; inset: -30%;
+  background:
+    linear-gradient(115deg, transparent 20%, rgba(255,255,255,.10) 32%, transparent 44%),
+    linear-gradient(115deg, transparent 52%, rgba(255,255,255,.07) 62%, transparent 74%),
+    linear-gradient(160deg, #111, #1d1d1d 40%, #0c0c0c 70%, #191919);
+  background-size: 200% 200%, 240% 240%, 100% 100%;
+  animation: sheen 16s ease-in-out infinite alternate;
+}
+.silk__bg:has(video)::before { opacity: .5; }
+@keyframes sheen { from { background-position: 0% 0%, 100% 0%, 0 0; } to { background-position: 100% 100%, 0% 100%, 0 0; } }
+.head { display: grid; gap: 20px; margin-bottom: 60px; max-width: 760px; }
+.head h2 { font-size: clamp(38px, 5vw, 72px); line-height: 1.02; }
+.head p { margin: 0; color: var(--muted); max-width: 56ch; }
+.head--center { margin-inline: auto; text-align: center; justify-items: center; }
+.head--center .label::after { content: ""; width: 40px; height: 1px; background: currentColor; }
+.collections { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.coll { display: grid; gap: 18px; align-content: start; min-width: 0; }
+.coll .ph { aspect-ratio: 4 / 5; border-radius: 200px 200px 6px 6px; transition: transform .6s ease, box-shadow .6s ease; }
+.coll:hover .ph { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+.silk .ph { background-image: radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,.22), transparent 55%), linear-gradient(160deg, #3a3a39, #1c1c1b 60%, #2b2b2a); }
+.silk .ph::after { color: rgba(255,255,255,.45); }
+.coll .ph img { transition: transform 1.2s ease; }
+.coll:hover .ph img { transform: scale(1.05); }
+.coll h3 { font-size: 30px; line-height: 1; }
+.coll h3 small { display: block; margin-top: 8px; font: 400 11px/1 var(--body); letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+.coll p { margin: 0; font-size: 15px; color: var(--muted); }
+.coll__foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; }
+.coll__foot b { font: 400 20px/1 var(--display); font-variant-numeric: lining-nums; }
+.coll__foot a { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+/* fitting ritual */
+.ritual { padding-block: 130px; background: var(--paper); }
+.ritual__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 70px; align-items: center; }
+.ritual__img { aspect-ratio: 4 / 5; border-radius: 6px 6px 220px 6px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps li::before { counter-increment: s; content: "0" counter(s); font: italic 400 34px/1 var(--display); color: var(--gold); }
+.steps b { display: block; font: 400 25px/1.2 var(--display); margin-bottom: 6px; }
+.steps span { color: var(--muted); font-size: 15.5px; }
+.steps em { font-style: normal; color: var(--ink); font-weight: 400; }
+
+.packages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 110px; }
+.pkg { display: flex; flex-direction: column; gap: 18px; padding: 38px 32px; background: var(--ivory); border-radius: 6px; min-width: 0; }
+.pkg--feature { background: var(--night); color: #f2f2f2; --gold: #ffffff; }
+.pkg--feature p, .pkg--feature li { color: rgba(242,242,242,.72); }
+.pkg small { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.pkg h3 { font-size: 30px; }
+.pkg .price { font: 400 46px/1 var(--display); font-variant-numeric: lining-nums; }
+.pkg .price span { font: 300 14px/1 var(--body); margin-left: 6px; opacity: .7; }
+.pkg p { margin: 0; color: var(--muted); font-size: 15px; }
+.pkg ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 15px; color: var(--muted); }
+.pkg--feature ul { border-color: rgba(242,242,242,.18); }
+.pkg li { display: flex; gap: 12px; }
+.pkg li::before { content: "✦"; color: var(--gold); font-size: 11px; line-height: 2.2; }
+.pkg .btn { margin-top: auto; justify-content: center; }
+.pkg--feature .btn { background: transparent; color: #f2f2f2; border-color: #f2f2f2; }
+.pkg--feature .btn:hover { background: #fff; color: var(--ink); }
+
+/* accessories + reviews */
+.extras { padding-block: 120px; background: var(--ivory); }
+.acc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.acc figure { margin: 0; display: grid; gap: 12px; min-width: 0; }
+.acc .ph { aspect-ratio: 1; border-radius: 50%; }
+.acc figcaption { text-align: center; font: italic 400 22px/1.2 var(--display); }
+.acc figcaption small { display: block; font: 300 13.5px/1.4 var(--body); color: var(--muted); font-style: normal; margin-top: 4px; }
+.reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 110px; }
+.review { margin: 0; display: grid; gap: 18px; align-content: start; min-width: 0; }
+.review blockquote { margin: 0; font: italic 400 22px/1.45 var(--display); }
+.review blockquote::before { content: "“"; display: block; font: 400 70px/.6 var(--display); color: var(--rose); margin-bottom: 12px; }
+.review figcaption { font-size: 12.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+
+/* finale */
+.finale { position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; display: flex; flex-direction: column; color: var(--ink); }
+.finale__media { position: absolute; inset: 0; z-index: -2; }
+.finale__media.ph::after { content: none; }
+.finale::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, var(--paper) 0%, rgba(255,255,255,.65) 18%, transparent 38%, transparent 76%, rgba(255,255,255,.78) 92%, var(--paper) 100%); }
+.finale__top { padding-block: 100px 0; display: grid; gap: 22px; justify-items: center; text-align: center; }
+.finale__top .label::after { content: ""; width: 40px; height: 1px; background: currentColor; }
+.finale h2 { font-size: clamp(40px, 5.6vw, 84px); line-height: 1; }
+.info { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 0; }
+.info div { padding: 0 30px; display: grid; gap: 6px; justify-items: center; min-width: 0; }
+.info div + div { border-left: 1px solid var(--line); }
+.info small { font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.info span { font-size: 15px; line-height: 1.5; }
+.info .big { font: 400 22px/1.3 var(--display); font-variant-numeric: lining-nums; }
+.finale__spacer { flex: 1; min-height: 30svh; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+.socials { display: flex; gap: 10px; }
+.social { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.88); border: 1px solid var(--ink); transition: background .3s ease, color .3s ease; }
+.social:hover { background: var(--ink); color: var(--paper); }
+.social svg { width: 18px; height: 18px; }
+footer { padding-block: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted); }
+
+/* booking dialog */
+.dialog { width: min(480px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 6px; background: var(--paper); color: var(--ink); box-shadow: 0 40px 80px -30px rgba(0,0,0,.5); }
+.dialog::backdrop { background: rgba(0,0,0,.4); backdrop-filter: blur(6px); }
+.book { padding: 40px 34px 32px; display: grid; gap: 16px; position: relative; }
+.book h3 { font-size: 34px; }
+.book h3 em { font-style: italic; color: var(--gold); }
+.book > p { margin: -6px 0 4px; color: var(--muted); font-size: 15px; }
+.close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.close svg { width: 16px; height: 16px; }
+.field { display: grid; gap: 7px; }
+.field label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select { width: 100%; padding: 14px 16px; border-radius: 4px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: 400 15px/1.2 var(--body); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--gold); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.book .btn { justify-content: center; margin-top: 6px; }
+.ok { margin: 0; padding: 14px 16px; background: var(--ivory); border-radius: 4px; font-size: 14.5px; }
+
+/* responsive */
+@media (max-width: 1080px) {
+  .collections, .acc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .packages, .reviews { grid-template-columns: minmax(0, 1fr); }
+  .packages { max-width: 560px; }
+  .ritual__grid { grid-template-columns: minmax(0, 1fr); gap: 50px; }
+  .ritual__img { max-width: 520px; }
+}
+@media (max-width: 860px) {
+  .nav ul, .nav .btn { display: none; }
+  .menu-btn { display: grid; }
+  .nav.is-open ul { display: grid; position: absolute; top: 100%; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 6px max(var(--gutter), env(safe-area-inset-right, 0px)) 16px max(var(--gutter), env(safe-area-inset-left, 0px)); gap: 0; }
+  .nav.is-open ul a { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hero__media { min-height: 0; aspect-ratio: 4 / 3; border-radius: 0 0 0 140px; order: -1; }
+  .hero__copy { justify-self: stretch; padding-block: 44px 64px; max-width: none; }
+  .info div { padding: 0 18px; }
+}
+@media (max-width: 600px) {
+  .collections { grid-template-columns: minmax(0, 1fr); }
+  .silk, .ritual, .extras { padding-block: 90px; }
+  .row2 { grid-template-columns: minmax(0, 1fr); }
+  .info { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 10px; }
+  .info div { padding: 0; }
+  .info div + div { border-left: 0; }
+  .book { padding: 34px 22px 24px; }
+  .hero__badge { left: 16px; bottom: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .petals { display: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo">Projekt koncepcyjny · fikcyjny salon · portfolio Nataliia Zhyhalova</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Biała Lilia, strona główna"><b>Biała Lilia</b><small>Salon sukien ślubnych</small></a>
+    <ul id="menu">
+      <li><a href="#kolekcje">Kolekcje</a></li>
+      <li><a href="#przymiarka">Przymiarka</a></li>
+      <li><a href="#cennik">Cennik</a></li>
+      <li><a href="#opinie">Opinie</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn btn--solid" href="#book">Umów przymiarkę</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h18M3 16h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="hero__copy">
+      <div class="label">Salon sukien ślubnych · Kraków</div>
+      <h1>Suknia, w której poczujesz się <em>sobą.</em></h1>
+      <p>Ponad 300 sukien od 12 projektantów. Prywatna przymiarka, kieliszek szampana i czas tylko dla Ciebie i najbliższych.</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#book">Umów przymiarkę
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="#kolekcje">Zobacz kolekcje</a>
+      </div>
+      <div class="hero__facts">
+        <div><b>300+</b>sukien w salonie</div>
+        <div><b>90 min</b>prywatnej przymiarki</div>
+        <div><b>11 lat</b>z pannami młodymi</div>
+      </div>
+    </div>
+    <div class="hero__media ph" data-label="Welon w porannym świetle">
+      <div class="petals" aria-hidden="true">
+        <i style="left:12%;animation-duration:13s;animation-delay:-2s;--dx:60px"></i>
+        <i style="left:30%;animation-duration:16s;animation-delay:-9s;--dx:-40px;transform:scale(.8)"></i>
+        <i style="left:48%;animation-duration:12s;animation-delay:-5s;--dx:90px"></i>
+        <i style="left:63%;animation-duration:18s;animation-delay:-12s;--dx:-70px"></i>
+        <i style="left:78%;animation-duration:14s;animation-delay:-1s;--dx:50px"></i>
+        <i style="left:90%;animation-duration:17s;animation-delay:-7s;--dx:-30px"></i>
+      </div>
+      <div class="hero__badge"><small>Nowa kolekcja</small><b>Lato 2027</b></div>
+    </div>
+  </section>
+
+  <section class="silk" id="kolekcje">
+    <div class="silk__bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="head head--center">
+        <div class="label">Kolekcje</div>
+        <h2>Cztery sylwetki, <em>jedna Ty</em></h2>
+        <p>Nie musisz wiedzieć, czego szukasz. Podczas przymiarki stylistka pokaże Ci po jednej sukni z każdej linii, a potem zawęzimy wybór razem.</p>
+      </div>
+      <div class="collections">
+        <article class="coll">
+          <div class="ph" data-label="Klasyka"></div>
+          <h3>Klasyka<small>Linia A</small></h3>
+          <p>Koronkowe rękawy, gorset i spódnica, która płynie przy każdym kroku. Pasuje do kościoła i pałacu.</p>
+          <div class="coll__foot"><b>od 5 900 zł</b><a href="#book" data-pick="Klasyka">Przymierz</a></div>
+        </article>
+        <article class="coll">
+          <div class="ph" data-label="Syrena"></div>
+          <h3>Syrena<small>Dopasowana</small></h3>
+          <p>Podkreśla talię i biodra, rozkloszowuje się od kolan. Długi tren do zdjęć, który odpinasz na wesele.</p>
+          <div class="coll__foot"><b>od 6 800 zł</b><a href="#book" data-pick="Syrena">Przymierz</a></div>
+        </article>
+        <article class="coll">
+          <div class="ph" data-label="Boho"></div>
+          <h3>Boho<small>Lekka</small></h3>
+          <p>Zwiewny szyfon, delikatna koronka i odkryte plecy. Na ślub w plenerze, w ogrodzie albo nad morzem.</p>
+          <div class="coll__foot"><b>od 4 900 zł</b><a href="#book" data-pick="Boho">Przymierz</a></div>
+        </article>
+        <article class="coll">
+          <div class="ph" data-label="Minimal"></div>
+          <h3>Minimal<small>Jedwab</small></h3>
+          <p>Gładki jedwab, cienkie ramiączka i zero zbędnych ozdób. Dla panien młodych, które lubią prostotę.</p>
+          <div class="coll__foot"><b>od 5 400 zł</b><a href="#book" data-pick="Minimal">Przymierz</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ritual" id="przymiarka">
+    <div class="wrap">
+      <div class="ritual__grid">
+        <div class="ritual__img ph" data-label="Przymierzalnia"></div>
+        <div>
+          <div class="head">
+            <div class="label">Jak wygląda przymiarka</div>
+            <h2>Od pierwszej sukni do <em>odbioru</em></h2>
+          </div>
+          <ol class="steps">
+            <li><div><b>Rezerwacja</b><span>Wybierasz termin online. Salon jest tylko dla Ciebie, możesz zabrać <em>do 3 bliskich osób</em>.</span></div></li>
+            <li><div><b>Przymiarka</b><span><em>90 minut</em> ze stylistką, szampan i 6–8 sukien dobranych do Twojej sylwetki i miejsca ślubu.</span></div></li>
+            <li><div><b>Dopasowanie</b><span>Krawcowa dopasowuje suknię do figury. <em>Dwie poprawki</em> są w cenie każdej sukni.</span></div></li>
+            <li><div><b>Odbiór</b><span>Prasujemy parą, pakujemy w pokrowiec i pokazujemy, jak zapiąć gorset bez pomocy.</span></div></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="packages" id="cennik">
+        <div class="pkg">
+          <small>Pierwszy krok</small>
+          <h3>Przymiarka</h3>
+          <div class="price">150 zł<span>/ 90 min</span></div>
+          <p>Kwota wraca do Ciebie, jeśli wybierzesz suknię u nas.</p>
+          <ul><li>Stylistka tylko dla Ciebie</li><li>6–8 sukien z różnych linii</li><li>Szampan dla Ciebie i gości</li></ul>
+          <a class="btn" href="#book" data-pick="Przymiarka">Zarezerwuj</a>
+        </div>
+        <div class="pkg pkg--feature">
+          <small>Najczęściej wybierany</small>
+          <h3>Suknia i poprawki</h3>
+          <div class="price">od 4 900 zł</div>
+          <p>Suknia z kolekcji dopasowana do Twojej figury.</p>
+          <ul><li>Dwie poprawki krawieckie</li><li>Prasowanie parą przed ślubem</li><li>Pokrowiec i wieszak z imieniem</li></ul>
+          <a class="btn" href="#book" data-pick="Suknia i poprawki">Umów przymiarkę</a>
+        </div>
+        <div class="pkg">
+          <small>Wszystko w jednym</small>
+          <h3>Pakiet Lilia</h3>
+          <div class="price">od 7 400 zł</div>
+          <p>Suknia i cała stylizacja dobrane podczas jednej wizyty.</p>
+          <ul><li>Suknia z poprawkami bez limitu</li><li>Welon, buty i biżuteria</li><li>Pielęgnacja sukni po ślubie</li></ul>
+          <a class="btn" href="#book" data-pick="Pakiet Lilia">Zapytaj o pakiet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="extras" id="opinie">
+    <div class="wrap">
+      <div class="head head--center">
+        <div class="label">Dodatki</div>
+        <h2>Detale, które <em>dopełniają</em></h2>
+      </div>
+      <div class="acc">
+        <figure><div class="ph" data-label="Welony"></div><figcaption>Welony<small>od tiulu po koronkę, od 690 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Buty"></div><figcaption>Buty<small>satyna i skóra, od 590 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Biżuteria"></div><figcaption>Biżuteria<small>perły i kryształy, od 290 zł</small></figcaption></figure>
+        <figure><div class="ph" data-label="Bolerka"></div><figcaption>Bolerka<small>na chłodniejszy wieczór, od 450 zł</small></figcaption></figure>
+      </div>
+
+      <div class="reviews">
+        <figure class="review"><blockquote>Przyszłam po syrenę, wyszłam w sukni boho. Stylistka zobaczyła we mnie coś, czego sama nie widziałam.</blockquote><figcaption>Kasia · ślub w sierpniu 2026</figcaption></figure>
+        <figure class="review"><blockquote>Mama płakała już przy trzeciej sukni. Ta godzina była jednym z najpiękniejszych momentów przed ślubem.</blockquote><figcaption>Ola · ślub w czerwcu 2026</figcaption></figure>
+        <figure class="review"><blockquote>Dwie poprawki i suknia leżała jak druga skóra. Na weselu tańczyłam do czwartej rano.</blockquote><figcaption>Magda · ślub we wrześniu 2026</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="finale" id="kontakt">
+    <div class="finale__media ph" data-label=""></div>
+    <div class="wrap finale__top">
+      <div class="label">Do zobaczenia w salonie</div>
+      <h2>Twoja historia zaczyna się <em>tutaj</em></h2>
+      <div class="info">
+        <div><small>Adres</small><span>ul. Lubicz 14/2<br>31-504 Kraków</span></div>
+        <div><small>Telefon</small><span class="big">+48 12 300 44 55</span></div>
+        <div><small>Godziny</small><span>Wt – Pt 11:00 – 19:00<br>Sob 10:00 – 16:00</span></div>
+        <div><small>E-mail</small><span>salon@bialalilia.pl</span></div>
+      </div>
+    </div>
+    <div class="finale__spacer"></div>
+    <div class="wrap">
+      <div class="actions">
+        <a class="btn btn--solid" href="#book">Umów przymiarkę
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="tel:+48123004455">Zadzwoń</a>
+        <div class="socials">
+          <a class="social" href="#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a class="social" href="#kontakt" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 00-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.4V21z"/></svg></a>
+          <a class="social" href="#kontakt" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.8 0 1.2.6 1.2 1.4 0 .8-.5 2.1-.8 3.2-.2 1 .5 1.8 1.5 1.8 1.8 0 3.1-1.9 3.1-4.6 0-2.4-1.7-4.1-4.2-4.1-2.9 0-4.5 2.1-4.5 4.4 0 .9.3 1.8.8 2.3.1.1.1.2.1.3l-.3 1.2c0 .2-.2.3-.4.2-1.3-.6-2.1-2.5-2.1-4.1 0-3.3 2.4-6.4 7-6.4 3.7 0 6.5 2.6 6.5 6.1 0 3.6-2.3 6.6-5.5 6.6-1.1 0-2.1-.6-2.4-1.2l-.7 2.5c-.2.9-.9 2.1-1.3 2.8A10 10 0 1012 2z"/></svg></a>
+          <a class="social" href="#kontakt" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0115.5 3h-3.1v12.4a2.6 2.6 0 11-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 105 5.7V9.1a7.4 7.4 0 004.3 1.4V7.4a4.3 4.3 0 01-3.3-1.6z"/></svg></a>
+        </div>
+      </div>
+      <footer>
+        <span>© 2026 Biała Lilia · koncept salonu sukien ślubnych</span>
+        <span>Projekt i wizualizacje: Nataliia Zhyhalova</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<dialog class="dialog" id="bookDialog" aria-label="Umów przymiarkę">
+  <form class="book" id="bookForm" novalidate>
+    <button class="close" type="button" id="bookClose" aria-label="Zamknij"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h3>Umów <em>przymiarkę</em></h3>
+    <p>Oddzwonimy w ciągu dnia i potwierdzimy termin.</p>
+    <div class="field"><label for="f-name">Imię</label><input id="f-name" name="name" autocomplete="given-name" placeholder="Anna" required></div>
+    <div class="row2">
+      <div class="field"><label for="f-phone">Telefon</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+48 600 000 000" required></div>
+      <div class="field"><label for="f-wedding">Data ślubu</label><input id="f-wedding" name="wedding" type="date"></div>
+    </div>
+    <div class="field"><label for="f-pick">Interesuje mnie</label>
+      <select id="f-pick" name="pick">
+        <option>Przymiarka</option>
+        <option>Klasyka</option>
+        <option>Syrena</option>
+        <option>Boho</option>
+        <option>Minimal</option>
+        <option>Suknia i poprawki</option>
+        <option>Pakiet Lilia</option>
+      </select>
+    </div>
+    <button class="btn btn--solid" type="submit">Wyślij zgłoszenie</button>
+    <p class="ok" id="bookOk" hidden>Dziękujemy! To strona demonstracyjna, więc zgłoszenie nie zostało wysłane.</p>
+  </form>
+</dialog>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', function () { menuBtn.setAttribute('aria-expanded', nav.classList.toggle('is-open')); });
+  document.querySelectorAll('#menu a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', false); }); });
+
+  var dlg = document.getElementById('bookDialog'), pick = document.getElementById('f-pick');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href="#book"]');
+    if (!a) return;
+    e.preventDefault();
+    if (a.dataset.pick) pick.value = a.dataset.pick;
+    document.getElementById('bookOk').hidden = true;
+    if (dlg.showModal) dlg.showModal(); else location.hash = 'kontakt';
+  });
+  document.getElementById('bookClose').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  document.getElementById('bookForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('f-name'), phone = document.getElementById('f-phone');
+    var bad = [name, phone].filter(function (f) { return !f.value.trim(); });
+    [name, phone].forEach(function (f) { f.style.borderColor = bad.indexOf(f) > -1 ? '#0d0d0d' : ''; f.style.borderWidth = bad.indexOf(f) > -1 ? '2px' : ''; });
+    if (bad.length) { bad[0].focus(); return; }
+    document.getElementById('bookOk').hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
