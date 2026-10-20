@@ -168,9 +168,17 @@ h1 em, h2 em { font-style: italic; color: var(--gold); }
 .coll__foot a { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 
 /* fitting ritual */
-.ritual { padding-block: 130px; background: var(--paper); }
-.ritual__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 70px; align-items: center; }
-.ritual__img { aspect-ratio: 1212 / 1297; border-radius: 6px; }
+.ritual { padding-block: 0 130px; background: var(--paper); }
+/* full-bleed fitting room; the steps sit on a dark veil over the mirror side */
+.ritual__stage { position: relative; isolation: isolate; min-height: 100svh; display: flex; align-items: center; background: #050505; color: var(--pearl);
+  --line: rgba(236,231,225,.18); --muted: #b3b6bb; --gold: var(--pearl); --ink: var(--pearl); }
+.ritual__img { position: absolute; inset: 0; z-index: -2; background: #050505; }
+.ritual__img img { object-position: 30% 50%; }
+.ritual__stage::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, transparent 0%, transparent 38%, rgba(5,5,5,.72) 58%, rgba(5,5,5,.9) 100%),
+              linear-gradient(180deg, rgba(5,5,5,.35) 0%, transparent 20%, transparent 80%, rgba(5,5,5,.45) 100%); }
+.ritual__grid { display: grid; padding-block: 110px; }
+.ritual__copy { justify-self: end; width: min(560px, 100%); }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
 .steps li { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--line); }
 .steps li:last-child { border-bottom: 1px solid var(--line); }
@@ -261,8 +269,8 @@ footer { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: s
   .collections, .acc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .packages, .reviews { grid-template-columns: minmax(0, 1fr); }
   .packages { max-width: 560px; }
-  .ritual__grid { grid-template-columns: minmax(0, 1fr); gap: 50px; }
-  .ritual__img { max-width: 520px; }
+  .ritual__stage::before { background: linear-gradient(180deg, rgba(5,5,5,.62) 0%, rgba(5,5,5,.72) 40%, rgba(5,5,5,.9) 100%); }
+  .ritual__copy { justify-self: stretch; }
 }
 @media (max-width: 860px) {
   .nav ul, .nav .btn { display: none; }
@@ -281,7 +289,9 @@ footer { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: s
 }
 @media (max-width: 600px) {
   .collections { grid-template-columns: minmax(0, 1fr); }
-  .silk, .ritual, .extras { padding-block: 90px; }
+  .silk, .extras { padding-block: 90px; }
+  .ritual { padding-block: 0 90px; }
+  .ritual__grid { padding-block: 60px; }
   .row2 { grid-template-columns: minmax(0, 1fr); }
   .info { grid-template-columns: 1fr 1fr; gap: 20px 14px; }
   .info .big { font-size: 17px; }
@@ -377,10 +387,10 @@ footer { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: s
   </section>
 
   <section class="ritual" id="przymiarka">
-    <div class="wrap">
-      <div class="ritual__grid">
-        <div class="ritual__img ph" data-label="Przymierzalnia"><img src="assets/przymierzalnia.webp" alt="Przymierzalnia z kwiatową bramą, lustrem i pufami" loading="lazy"></div>
-        <div>
+    <div class="ritual__stage">
+      <div class="ritual__img ph" data-label="Przymierzalnia"><img src="assets/przymierzalnia.webp" alt="Przymierzalnia z kwiatową bramą, lustrem i pufami" loading="lazy"></div>
+      <div class="wrap ritual__grid">
+        <div class="ritual__copy">
           <div class="head">
             <div class="label">Jak wygląda przymiarka</div>
             <h2>Od pierwszej sukni do <em>odbioru</em></h2>
@@ -393,7 +403,9 @@ footer { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: s
           </ol>
         </div>
       </div>
+    </div>
 
+    <div class="wrap">
       <div class="packages" id="cennik">
         <div class="pkg">
           <small>Pierwszy krok</small>
