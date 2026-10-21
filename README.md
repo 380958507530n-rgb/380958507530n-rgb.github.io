@@ -8,3 +8,4 @@ Portfolio of concept websites, published at https://380958507530n-rgb.github.io/
 - `lilia/` — Biała Lilia bridal salon
 - `szalwia/` — Szałwia veterinary clinic
 - `nowy-adres/` — Nowy Adres real estate agency
+- `jedwab/` — Jedwab cosmetology clinic
